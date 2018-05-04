@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="rental.logon.LogonController">
+<center>
+    <AnchorPane prefHeight="453.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <children>
+            <Button fx:id="logonButton" layoutX="250.0" layoutY="317.0" mnemonicParsing="false" onAction="#logonButton_Click" prefHeight="36.0" prefWidth="103.0" text="Zaloguj">
+                <font>
+                    <Font name="Open Sans" size="14.0" />
+                </font>
+            </Button>
+            <Label fx:id="signupLabel" layoutX="525.0" layoutY="369.0" text="Rejestracja">
+                <font>
+                    <Font name="Open Sans" size="12.0" />
+                </font>
+            </Label>
+            <TextField fx:id="loginField" layoutX="251.0" layoutY="155.0">
+                <font>
+                    <Font name="Open Sans" size="18.0" />
+                </font>
+            </TextField>
+            <PasswordField fx:id="passwordField" accessibleRole="PASSWORD_FIELD" layoutX="251.0" layoutY="208.0">
+                <font>
+                    <Font name="Open Sans" size="18.0" />
+                </font>
+            </PasswordField>
+            <Label fx:id="passwordLabel" layoutX="148.0" layoutY="214.0" prefHeight="25.0" prefWidth="62.0" text="HASŁO">
+                <font>
+                    <Font name="Open Sans" size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="loginLabel" layoutX="151.0" layoutY="161.0" text="LOGIN" textAlignment="RIGHT">
+                <font>
+                    <Font name="Open Sans" size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="errorLabel" layoutX="179.0" layoutY="280.0" prefHeight="17.0" prefWidth="299.0" textFill="#d72020">
+               <font>
+                  <Font name="Open Sans" size="14.0" />
+               </font>
+            </Label>
+        </children>
+    </AnchorPane>
+</center>
+</BorderPane>
