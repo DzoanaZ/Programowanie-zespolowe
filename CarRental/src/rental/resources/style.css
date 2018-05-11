@@ -1,0 +1,8 @@
+.menuItem{
+    -fx-font: "Verdana";
+    -fx-underline: false;
+    -fx-font-size: 14 pt;
+}
+.menuItem :hover{
+    -fx-underline: true;
+}
