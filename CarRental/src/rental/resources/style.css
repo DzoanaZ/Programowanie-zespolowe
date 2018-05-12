@@ -6,3 +6,7 @@
 .menuItem :hover{
     -fx-underline: true;
 }
+
+.active{
+    -fx-font-weight: bold;    
+}
