@@ -81,7 +81,8 @@ public class LogonController {
                     break;
             }
 
-            stage.setScene(new Scene(loader.load()));
+            stage.setScene(new Scene(loader.load(),900,620));
+            stage.setResizable(false);
             AController controller = loader.<AController>getController();
             controller.initData(loginField.getText());
 

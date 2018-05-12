@@ -10,3 +10,9 @@
 .active{
     -fx-font-weight: bold;    
 }
+.order{
+    
+    -fx-border-color: #AAA;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 1px 0px;
+}

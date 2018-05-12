@@ -11,16 +11,16 @@ public class PersonalData extends AnchorPane {
     @FXML
     TextField emailField;
 
-    public String getEmailField() {
+    public String getEmail() {
         return emailField.getText();
     }
     
-    public TextField getEmailTextField() {
+    public TextField getEmailField() {
         return emailField;
     }
 
-    public void setEmailField(String emailField) {
-        this.emailField.setText(emailField);
+    public void setEmail(String email) {
+        this.emailField.setText(email);
     }
     
     public PersonalData(){

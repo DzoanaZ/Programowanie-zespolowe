@@ -6,87 +6,92 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="510.0" prefWidth="376.0" type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml">
+<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="97.0" layoutY="33.0" text="Imię">
+      <Label layoutX="233.0" layoutY="100.0" text="Imię">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="58.0" layoutY="74.0" text="Nazwisko">
+      <Label layoutX="194.0" layoutY="141.0" text="Nazwisko">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="116.0" text="Telefon">
+      <Label layoutX="211.0" layoutY="183.0" text="Telefon">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="83.0" layoutY="160.0" text="E-mail" textAlignment="RIGHT">
+      <Label layoutX="219.0" layoutY="227.0" text="E-mail" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="158.0" layoutY="31.0">
+      <TextField layoutX="294.0" layoutY="98.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="158.0" layoutY="72.0">
+      <TextField layoutX="294.0" layoutY="139.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="158.0" layoutY="114.0">
+      <TextField layoutX="294.0" layoutY="181.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailField" layoutX="158.0" layoutY="160.0">
+      <TextField fx:id="emailField" layoutX="294.0" layoutY="227.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="162.0" layoutY="211.0" mnemonicParsing="false" text="Zapisz">
+      <Button layoutX="298.0" layoutY="278.0" mnemonicParsing="false" text="Zapisz">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="47.0" layoutY="290.0" text="Stare hasło" textAlignment="RIGHT">
+      <Label layoutX="183.0" layoutY="357.0" text="Stare hasło" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="146.0" layoutY="288.0">
+      <TextField layoutX="282.0" layoutY="355.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label layoutX="42.0" layoutY="349.0" text="Nowe hasło" textAlignment="RIGHT">
+      <Label layoutX="178.0" layoutY="416.0" text="Nowe hasło" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="146.0" layoutY="347.0">
+      <TextField layoutX="282.0" layoutY="414.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="144.0" layoutY="451.0" mnemonicParsing="false" text="Zmień hasło">
+      <Button layoutX="280.0" layoutY="518.0" mnemonicParsing="false" text="Zmień hasło">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="27.0" layoutY="398.0" text="Powtórz hasło" textAlignment="RIGHT">
+      <Label layoutX="163.0" layoutY="465.0" text="Powtórz hasło" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="146.0" layoutY="396.0">
+      <TextField layoutX="282.0" layoutY="463.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
+      <Label layoutX="270.0" layoutY="39.0" text="Moje dane">
+         <font>
+            <Font name="Verdana Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </fx:root>
