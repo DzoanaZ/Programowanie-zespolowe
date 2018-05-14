@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="CarRental.jar" size="22420" download="eager" />
+    <jar href="CarRental.jar" size="26768" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="CarRental" >
     <param name="requiredFXVersion" value="8.0+"/>

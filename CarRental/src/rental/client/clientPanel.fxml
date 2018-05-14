@@ -36,11 +36,11 @@
                   </AnchorPane>
             </content>
           </TitledPane>
-          <TitledPane fx:id="applyOrderTab" animated="false" text=" Złóż zamówienie">
+          <TitledPane fx:id="applyOrderTab" animated="false" text="Nowe wypożyczenia">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="508.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="askForAvailabilityLabel" layoutX="16.0" layoutY="5.0" onMouseClicked="#menuItem_Clicked" prefHeight="28.0" prefWidth="142.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Zapytaj o dostępność" />
+                        <Label fx:id="submitOrder" layoutX="16.0" layoutY="5.0" onMouseClicked="#menuItem_Clicked" prefHeight="28.0" prefWidth="174.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Złóż zamówienie" />
                      </children>
                   </AnchorPane>
             </content>

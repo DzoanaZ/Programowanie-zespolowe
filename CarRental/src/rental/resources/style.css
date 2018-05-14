@@ -1,7 +1,6 @@
 .menuItem{
-    -fx-font: "Verdana";
+    -fx-font: 10pt 'Verdana';
     -fx-underline: false;
-    -fx-font-size: 14 pt;
 }
 .menuItem :hover{
     -fx-underline: true;
@@ -15,4 +14,9 @@
     -fx-border-color: #AAA;
     -fx-border-style: solid;
     -fx-border-width: 0px 0px 1px 0px;
+}
+
+.h1{
+    -fx-font: bold 14pt 'Verdana';
+    -fx-underline: false;
 }

@@ -12,6 +12,7 @@ public class ClientController extends AController {
     private PersonalData personalData;
     private ActualOrders actualOrders;
     private HistoryOrders historyOrders;
+    private AvailableCars availableCars;
         
     @FXML
     private AnchorPane contentBox;
@@ -33,7 +34,7 @@ public class ClientController extends AController {
     private Label jasloLabel;
 
     @FXML
-    private Label askForAvailabilityLabel;
+    private Label submitOrder;
 
     public ClientController() {
         //TODO: log4j implemented
@@ -72,8 +73,8 @@ public class ClientController extends AController {
             else if (selectedItem.getId().equals("stalowaLabel")) {
                 item = LabelType.stalowaLabel;
             } 
-            else if (selectedItem.getId().equals("askForAvailabilityLabel")) {
-                item = LabelType.askForAvailabilityLabel;
+            else if (selectedItem.getId().equals("submitOrder")) {
+                item = LabelType.submitOrder;
             }
         }
         if (item != null) {
@@ -105,24 +106,28 @@ public class ClientController extends AController {
                 break;
                 
             case dynowLabel:
+                availableCars = new AvailableCars("Dynów");
+                contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.dynowLabel);
-                contentBox.getChildren().clear();
-                break;
+            break;
             case jasloLabel:
+                availableCars = new AvailableCars("Jasło");
+                contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.jasloLabel);
-                contentBox.getChildren().clear();
                 break;
             case rzeszowLabel:
+                availableCars = new AvailableCars("Rzeszów");
+                contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.rzeszowLabel);
-                contentBox.getChildren().clear();
                 break;
             case stalowaLabel:
+                availableCars = new AvailableCars("Stalowa Wola");
+                contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.stalowaLabel);
-                contentBox.getChildren().clear();
                 break;
                 
-            case askForAvailabilityLabel:
-                selectMenuItem(this.askForAvailabilityLabel);
+            case submitOrder:
+                selectMenuItem(this.submitOrder);
                 contentBox.getChildren().clear();
                 break;
         }
@@ -144,6 +149,6 @@ public class ClientController extends AController {
         jasloLabel,
         rzeszowLabel,
         stalowaLabel,
-        askForAvailabilityLabel
+        submitOrder
     }
 }
