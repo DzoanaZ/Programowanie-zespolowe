@@ -13,6 +13,7 @@ public class ClientController extends AController {
     private ActualOrders actualOrders;
     private HistoryOrders historyOrders;
     private AvailableCars availableCars;
+    private SubmitOrder submitOrderClass;
         
     @FXML
     private AnchorPane contentBox;
@@ -127,8 +128,9 @@ public class ClientController extends AController {
                 break;
                 
             case submitOrder:
+                submitOrderClass = new SubmitOrder();
+                contentBox.getChildren().setAll(submitOrderClass);
                 selectMenuItem(this.submitOrder);
-                contentBox.getChildren().clear();
                 break;
         }
     }
