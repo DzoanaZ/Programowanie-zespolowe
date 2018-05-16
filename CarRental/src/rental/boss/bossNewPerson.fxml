@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="230.0" layoutY="78.0" text="Imię">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="191.0" layoutY="119.0" text="Nazwisko">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="208.0" layoutY="161.0" text="Telefon">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="216.0" layoutY="205.0" text="E-mail" textAlignment="RIGHT">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="291.0" layoutY="76.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="291.0" layoutY="117.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="291.0" layoutY="159.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="emailField" layoutX="291.0" layoutY="205.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="322.0" layoutY="341.0" mnemonicParsing="false" text="Dodaj">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="660.0" text="Dodaj nową osobę" textAlignment="CENTER">
+         <font>
+            <Font name="Verdana Bold" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="215.0" layoutY="321.0" prefHeight="0.0" prefWidth="271.0" />
+      <RadioButton layoutX="266.0" layoutY="275.0" mnemonicParsing="false" text="Pracownik" />
+      <RadioButton layoutX="379.0" layoutY="275.0" mnemonicParsing="false" text="Klient" />
+   </children>
+</fx:root>

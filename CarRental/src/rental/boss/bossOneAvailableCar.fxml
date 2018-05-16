@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" styleClass="order" stylesheets="@CarRental/Programowanie-zespolowe-GUI/CarRental/src/rental/resources/style.css" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="carName" layoutX="17.0" layoutY="10.0" text="Opel Corsa C 2003">
+         <font>
+            <Font name="Verdana Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="46.0" text="Sllnik" />
+      <Label fx:id="engine" layoutX="17.0" layoutY="63.0" text="1.2 75 KM Benzyna">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="257.0" layoutY="45.0" text="Liczba drzwi" />
+      <Label fx:id="doors" layoutX="257.0" layoutY="62.0" text="5">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" layoutX="447.0" layoutY="57.0" text="120,00 zł">
+         <font>
+            <Font name="Consolas Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="447.0" layoutY="43.0" text="Koszt za dobę" />
+      <Label fx:id="pieces" alignment="CENTER" layoutX="290.0" layoutY="63.0" prefHeight="18.0" prefWidth="145.0" text="3 szt." textAlignment="CENTER">
+         <font>
+            <Font name="Verdana Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="344.0" layoutY="45.0" text="Ilość" />
+      <Label fx:id="city" alignment="CENTER_RIGHT" layoutX="415.0" layoutY="7.0" prefHeight="20.0" prefWidth="179.0" text="RZESZÓW" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

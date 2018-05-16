@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ListView fx:id="listActualOrders" layoutX="28.0" layoutY="66.0" maxHeight="520.0" maxWidth="620.0" minHeight="520.0" minWidth="620.0" prefHeight="520.0" prefWidth="620.0" />
+      <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="24.0" prefWidth="654.0" styleClass="h1" stylesheets="@../resources/style.css" text="Aktualne wypożyczenia" textAlignment="CENTER">
+         <font>
+            <Font name="Verdana Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>
