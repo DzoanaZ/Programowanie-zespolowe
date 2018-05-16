@@ -13,6 +13,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 
 
@@ -92,6 +93,16 @@ public class SubmitOrder extends AnchorPane {
         //Validate date range
         addRentalDateValidate(this.dateOfRent, this.dateOfRent, this.dateOfReturn);
         addRentalDateValidate(this.dateOfReturn, this.dateOfRent, this.dateOfReturn);
+        
+        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
+        {
+        @Override
+        public void changed(ObservableValue<? extends Toggle> ov, Toggle t, Toggle t1)
+            {
+            RadioButton chk = (RadioButton)t1.getToggleGroup().getSelectedToggle(); // Cast object to radio button
+            System.out.println("Selected Radio Button - "+chk.getText());
+            }
+        });
     }
     
     private void addTextLimiter(final TextField tf, final int maxLength) {
