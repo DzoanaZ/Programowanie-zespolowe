@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="863.0" 
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="rental.employee.EmployeeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rental.employee.EmployeeController">
    <center>
-      <AnchorPane prefHeight="586.0" prefWidth="629.0" BorderPane.alignment="CENTER" />
+      <AnchorPane maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <Accordion BorderPane.alignment="CENTER">
@@ -19,8 +18,6 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Label fx:id="myPersolanlDataLabel" layoutX="23.0" layoutY="11.0" prefHeight="17.0" prefWidth="160.0" text="Dane osobowe" />
-                        <Label fx:id="myCurrentOrdersLabel" layoutX="23.0" layoutY="37.0" prefHeight="17.0" prefWidth="160.0" text="Aktualne zamówienia" />
-                        <Label fx:id="myRentalHistoryLabel" layoutX="23.0" layoutY="62.0" prefHeight="17.0" prefWidth="160.0" text="Historia wypożyczeń" />
                      </children>
                   </AnchorPane>
             </content>
@@ -41,10 +38,9 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="508.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="questionsForAvailabilityLabel" layoutX="26.0" layoutY="7.0" text="Zapytania o dostępność" />
-                        <Label fx:id="currentOrdersLabel" layoutX="26.0" layoutY="32.0" text="Aktualne" />
-                        <Label fx:id="ordersHistoryLabel" layoutX="26.0" layoutY="56.0" text="Historia zamówień" />
-                        <Label fx:id="processOrderLabel" layoutX="26.0" layoutY="81.0" text="Dokończ zamówienie" />
+                        <Label fx:id="currentOrdersLabel" layoutX="26.0" layoutY="7.0" text="Aktualne wypożyczenia" />
+                        <Label fx:id="ordersHistoryLabel" layoutX="26.0" layoutY="32.0" text="Historia wypożyczeń" />
+                        <Label fx:id="processOrderLabel" layoutX="26.0" layoutY="56.0" text="Potwierdź wypożyczenie" />
                      </children>
                   </AnchorPane>
             </content>
