@@ -11,6 +11,6 @@ public class BossController extends AController {
     }
 
     public void myProfilTab_Clicked(MouseEvent mouseEvent) {
-        System.out.println("Login: " + login);
+        System.out.println("Login: ");
     }
 }

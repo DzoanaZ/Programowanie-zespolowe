@@ -1,11 +1,11 @@
 package rental;
 
 public abstract class AController {
-    protected String login;
+    protected User user;
 
-    public void initData(String customer){
+    public void initData(User user){
         //TODO: log4j implemented
-        System.out.println("Login: " + customer + " user.");
-        this.login = customer;
+        System.out.println("Login: " + user.getEmail() + " user.");
+        this.user = user;
     }
 }

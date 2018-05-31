@@ -91,8 +91,8 @@ public class ClientController extends AController {
         switch (item) {
             case myPersonalDataLabel:
                 personalData = new PersonalData();
-                contentBox.getChildren().setAll(personalData);
-                personalData.setEmail(login);
+                contentBox.getChildren().setAll(personalData);           
+                personalData.setEmail(user.getEmail());             
                 selectMenuItem(this.myPersonalDataLabel);
                 break;
             case myCurrentOrdersLabel:
@@ -107,7 +107,7 @@ public class ClientController extends AController {
                 break;
                 
             case dynowLabel:
-                availableCars = new AvailableCars("Dynów");
+                availableCars = new AvailableCars("Dynów");           
                 contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.dynowLabel);
             break;
@@ -120,7 +120,7 @@ public class ClientController extends AController {
                 availableCars = new AvailableCars("Rzeszów");
                 contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.rzeszowLabel);
-                break;
+                break;  
             case stalowaLabel:
                 availableCars = new AvailableCars("Stalowa Wola");
                 contentBox.getChildren().setAll(availableCars);
