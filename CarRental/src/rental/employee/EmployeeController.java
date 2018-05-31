@@ -92,7 +92,7 @@ public class EmployeeController extends AController {
             case myPersonalDataLabel:
                 personalData = new PersonalData();
                 contentBox.getChildren().setAll(personalData);
-                // personalData.setEmail(login);
+                personalData.setEmail(user.getEmail());
                 selectMenuItem(this.myPersonalDataLabel);
                 break;
             case myCurrentOrdersLabel:
