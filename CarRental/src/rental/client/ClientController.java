@@ -92,7 +92,7 @@ public class ClientController extends AController {
             case myPersonalDataLabel:
                 personalData = new PersonalData();
                 contentBox.getChildren().setAll(personalData);           
-                personalData.setEmail(user.getEmail());             
+                personalData.setUserAndPrepareFields(user);             
                 selectMenuItem(this.myPersonalDataLabel);
                 break;
             case myCurrentOrdersLabel:

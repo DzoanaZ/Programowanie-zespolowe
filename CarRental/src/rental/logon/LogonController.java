@@ -49,10 +49,11 @@ public class LogonController {
                 while (rs.next()) {
                     logonUser.setId(rs.getString("user_id"));
                     logonUser.setEmail(rs.getString("email"));
-                    logonUser.setImie(rs.getString("imie"));
-                    logonUser.setNazwisko(rs.getString("nazwisko"));
-                    logonUser.setTelefon(rs.getString("telefon"));
-                    logonUser.setTyp(rs.getString("typ"));
+                    logonUser.setFirstName(rs.getString("imie"));
+                    logonUser.setSurname(rs.getString("nazwisko"));
+                    logonUser.setTel(rs.getString("telefon"));
+                    logonUser.setType(rs.getString("typ"));
+                    logonUser.setPassword(rs.getString("haslo"));
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -63,11 +64,11 @@ public class LogonController {
         System.out.println("Click! " + loginField.getText() + " | " + passwordField.getText());
 
         if(logonUser.getId()!=null){
-            if(logonUser.getTyp().equalsIgnoreCase("S"))
+            if(logonUser.getType().equalsIgnoreCase("S"))
                 user = UserType.Boss;
-            else if (logonUser.getTyp().equalsIgnoreCase("K"))
+            else if (logonUser.getType().equalsIgnoreCase("K"))
                 user = UserType.Client;
-            else if (logonUser.getTyp().equalsIgnoreCase("P"))
+            else if (logonUser.getType().equalsIgnoreCase("P"))
                 user = UserType.Employee;
             else
                 errorLabel.setText("DB: Nieprawidłowy login i/lub hasło");

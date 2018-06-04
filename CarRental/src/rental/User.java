@@ -3,10 +3,11 @@ package rental;
 public class User {
     private String id;
     private String email;
-    private String imie;
-    private String nazwisko;
-    private String telefon;
-    private String typ;
+    private String firstName;
+    private String surname;
+    private String tel;
+    private String type;
+    private String password;
 
     public String getId() {
         return id;
@@ -24,36 +25,45 @@ public class User {
         this.email = email;
     }
 
-    public String getImie() {
-        return imie;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setImie(String imie) {
-        this.imie = imie;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getNazwisko() {
-        return nazwisko;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getTelefon() {
-        return telefon;
+    public String getTel() {
+        return tel;
     }
 
-    public void setTelefon(String telefon) {
-        this.telefon = telefon;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
-    public String getTyp() {
-        return typ;
+    public String getType() {
+        return type;
     }
 
-    public void setTyp(String typ) {
-        this.typ = typ;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        if(password!=null && !password.equals(""))
+            this.password = password;
     }
     
     
