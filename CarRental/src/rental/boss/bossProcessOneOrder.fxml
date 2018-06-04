@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" styleClass="order" stylesheets="@../resources/style.css" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="nameOrder" layoutX="89.0" layoutY="9.0" text="Opel Corsa C 2003">
+      <Label fx:id="nameOrder" layoutX="228.0" layoutY="8.0" text="Opel Corsa C 2003">
          <font>
             <Font name="Verdana Bold" size="14.0" />
          </font>
@@ -41,6 +42,11 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="confirmCode" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Zatwierdź" />
+      <MenuButton layoutX="14.0" layoutY="13.0" mnemonicParsing="false" stylesheets="@../resources/style.css" text="Opcje">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Zatwierdź" />
+          <MenuItem mnemonicParsing="false" text="Anuluj" />
+        </items>
+      </MenuButton>
    </children>
 </fx:root>

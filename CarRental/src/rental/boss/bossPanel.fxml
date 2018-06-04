@@ -9,7 +9,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rental.boss.BossController">
    <center>
-      <AnchorPane prefHeight="586.0" prefWidth="629.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="contentBox" prefHeight="586.0" prefWidth="629.0" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <Accordion BorderPane.alignment="CENTER">
@@ -18,7 +18,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="myPersolanlDataLabel" layoutX="23.0" layoutY="11.0" prefHeight="17.0" prefWidth="160.0" text="Dane osobowe" />
+                        <Label fx:id="myPersonalDataLabel" layoutX="23.0" layoutY="11.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="160.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Dane osobowe" />
                      </children>
                   </AnchorPane>
             </content>
@@ -27,11 +27,11 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="rzeszowLabel" layoutX="25.0" layoutY="63.0" prefHeight="17.0" prefWidth="158.0" text="Rzeszów" />
-                        <Label fx:id="stalowaLabel" layoutX="25.0" layoutY="89.0" prefHeight="17.0" prefWidth="158.0" text="Stalowa Wola" />
-                        <Label fx:id="dynowLabel" layoutX="25.0" layoutY="11.0" prefHeight="17.0" prefWidth="158.0" text="Dynów" />
-                        <Label fx:id="jasloLabel" layoutX="25.0" layoutY="37.0" prefHeight="17.0" prefWidth="158.0" text="Jasło" />
-                        <Label fx:id="addNewCar" layoutX="25.0" layoutY="136.0" prefHeight="17.0" prefWidth="158.0" text="Dodaj nowy" />
+                        <Label fx:id="rzeszowLabel" layoutX="25.0" layoutY="63.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="158.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Rzeszów" />
+                        <Label fx:id="stalowaLabel" layoutX="25.0" layoutY="89.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="158.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Stalowa Wola" />
+                        <Label fx:id="dynowLabel" layoutX="25.0" layoutY="11.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="158.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Dynów" />
+                        <Label fx:id="jasloLabel" layoutX="25.0" layoutY="37.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="158.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Jasło" />
+                        <Label fx:id="newCarLabel" layoutX="25.0" layoutY="136.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="158.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Dodaj nowe auto" />
                         <Separator layoutX="14.0" layoutY="123.0" prefHeight="4.0" prefWidth="181.0" />
                      </children>
                   </AnchorPane>
@@ -41,9 +41,9 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="508.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="currentOrdersLabel" layoutX="26.0" layoutY="7.0" text="Aktualne wypożyczenie" />
-                        <Label fx:id="ordersHistoryLabel" layoutX="26.0" layoutY="32.0" text="Historia wypożyczeń" />
-                        <Label fx:id="processOrderLabel" layoutX="26.0" layoutY="56.0" text="Potwierdź wypożyczenie" />
+                        <Label fx:id="myCurrentOrdersLabel" layoutX="26.0" layoutY="7.0" onMouseClicked="#menuItem_Clicked" styleClass="menuItem" stylesheets="@../resources/style.css" text="Aktualne wypożyczenie" />
+                        <Label fx:id="myRentalHistoryLabel" layoutX="26.0" layoutY="32.0" onMouseClicked="#menuItem_Clicked" styleClass="menuItem" stylesheets="@../resources/style.css" text="Historia wypożyczeń" />
+                        <Label fx:id="processOrderLabel" layoutX="26.0" layoutY="56.0" onMouseClicked="#menuItem_Clicked" styleClass="menuItem" stylesheets="@../resources/style.css" text="Potwierdź wypożyczenie" />
                      </children>
                   </AnchorPane>
             </content>
@@ -52,10 +52,10 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="customersLabel" layoutX="26.0" layoutY="12.0" prefHeight="17.0" prefWidth="144.0" text="Klienci" />
-                        <Label fx:id="employeesLabel" layoutX="26.0" layoutY="39.0" prefHeight="17.0" prefWidth="144.0" text="Pracownicy" />
+                        <Label fx:id="customersLabel" layoutX="26.0" layoutY="12.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="144.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Klienci" />
+                        <Label fx:id="employeesLabel" layoutX="26.0" layoutY="39.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="144.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Pracownicy" />
                         <Separator layoutX="20.0" layoutY="72.0" prefHeight="3.0" prefWidth="160.0" />
-                        <Label fx:id="addNewUser" layoutX="26.0" layoutY="90.0" prefHeight="17.0" prefWidth="93.0" text="Dodaj nowy" />
+                        <Label fx:id="newPersonLabel" layoutX="26.0" layoutY="90.0" onMouseClicked="#menuItem_Clicked" prefHeight="17.0" prefWidth="93.0" styleClass="menuItem" stylesheets="@../resources/style.css" text="Dodaj nowy" />
                      </children>
                   </AnchorPane>
               </content>
