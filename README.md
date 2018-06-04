@@ -11,20 +11,23 @@ There are three groups of users in this project
 ### User - customer
 To login as a customer enter:
 ```
-The same login and password
+Login: klient@klient.com
+Password: klient
 ```
 
 ### User - employee
 To login as a employee enter:
 ```
-Login and password "employee"
+Login: pracownik@pracownik.com
+Password: pracownik
 ```
 
 ### User - boss
 To login as a boss enter:
 ```
-Login and password "admin"
+Login: szef@szef.com
+Password: szef
 ```
 
 ### Last modification
-May 4, 2018
+June 1, 2018
