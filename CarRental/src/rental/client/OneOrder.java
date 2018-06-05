@@ -21,6 +21,9 @@ public class OneOrder extends AnchorPane{
     @FXML
     Label cityRent;
     
+    @FXML
+    Label dateReturnLabel;
+    
     public OneOrder(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("clientOneOrder.fxml"));
         fxmlLoader.setRoot(this);
@@ -80,6 +83,16 @@ public class OneOrder extends AnchorPane{
     public void setStatus(String status) {
         this.status.setText(status);
     }
+
+    public Label getDateReturnLabel() {
+        return dateReturnLabel;
+    }
+
+    public void setDateReturnLabel(String dateReturnLabel) {
+        this.dateReturnLabel.setText(dateReturnLabel);
+    }
+    
+    
     
     
     public void setOrderData(String nameOrder, String dateOfRent, String dateOfReturn, 

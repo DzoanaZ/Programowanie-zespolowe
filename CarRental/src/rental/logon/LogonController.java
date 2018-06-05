@@ -28,15 +28,14 @@ public class LogonController {
     PasswordField passwordField;
     @FXML
     Label errorLabel;
-    
+
     User logonUser;
-    
 
     public void logonButton_Click(ActionEvent event) {
         logonUser = new User();
-        
+
         if (loginField.getText() != null && !loginField.getText().equals("")) {
-            
+
             String sql = "SELECT * FROM uzytkownicy WHERE email = ? AND haslo = ?";
 
             try (Connection conn = ConnectionDB.connect();
@@ -44,7 +43,7 @@ public class LogonController {
                 pstmt.setString(1, loginField.getText());
                 pstmt.setString(2, passwordField.getText());
 
-                ResultSet rs  = pstmt.executeQuery();
+                ResultSet rs = pstmt.executeQuery();
 
                 while (rs.next()) {
                     logonUser.setId(rs.getString("user_id"));
@@ -57,58 +56,53 @@ public class LogonController {
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
-            }
-        }
-
-        UserType user = null;
-        System.out.println("Click! " + loginField.getText() + " | " + passwordField.getText());
-
-        if(logonUser.getId()!=null){
-            if(logonUser.getType().equalsIgnoreCase("S"))
-                user = UserType.Boss;
-            else if (logonUser.getType().equalsIgnoreCase("K"))
-                user = UserType.Client;
-            else if (logonUser.getType().equalsIgnoreCase("P"))
-                user = UserType.Employee;
-            else
                 errorLabel.setText("DB: Nieprawidłowy login i/lub hasło");
-        }
-        else if (!loginField.getText().equals("") && loginField != null) {
-            errorLabel.setText("");
-
-            if (loginField.getText().equalsIgnoreCase("admin") && passwordField.getText().equalsIgnoreCase("admin")) {
-                user = UserType.Boss;
-            } else if (loginField.getText().equalsIgnoreCase("employee") && passwordField.getText().equalsIgnoreCase("employee")) {
-                user = UserType.Employee;
-            } else if (loginField.getText().equals(passwordField.getText())) {
-                user = UserType.Client;
-            } else {
-                errorLabel.setText("Nieprawidłowy login i/lub hasło");
+                return;
             }
         } else {
             errorLabel.setText("Nieprawidłowy login i/lub hasło");
+            return;
         }
-        if (user != null) {
-            switch (user) {
+
+        UserType userType = null;
+        System.out.println("Click! " + loginField.getText() + " | " + passwordField.getText());
+
+        if (logonUser.getId() != null) {
+            if (logonUser.getType().equalsIgnoreCase("S")) {
+                userType = UserType.Boss;
+            } else if (logonUser.getType().equalsIgnoreCase("K")) {
+                userType = UserType.Client;
+            } else if (logonUser.getType().equalsIgnoreCase("P")) {
+                userType = UserType.Employee;
+            } else {
+                errorLabel.setText("DB: Nieprawidłowy login i/lub hasło");
+                return;
+            }
+        } else {
+            errorLabel.setText("DB: Nieprawidłowy login i/lub hasło");
+            return;
+        }
+        if (userType != null) {
+            switch (userType) {
                 case Boss:
-                    openNewStage(event, "/rental/boss/bossPanel.fxml", user);
+                    openNewStage(event, "/rental/boss/bossPanel.fxml", userType);
                     break;
                 case Employee:
-                    openNewStage(event, "/rental/employee/employeePanel.fxml", user);
+                    openNewStage(event, "/rental/employee/employeePanel.fxml", userType);
                     break;
                 case Client:
-                    openNewStage(event, "/rental/client/clientPanel.fxml", user);
+                    openNewStage(event, "/rental/client/clientPanel.fxml", userType);
                     break;
             }
         }
     }
 
-    private void openNewStage(ActionEvent event, String patch, UserType user) {
+    private void openNewStage(ActionEvent event, String patch, UserType userType) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(patch));
             Stage stage = new Stage(StageStyle.DECORATED);
 
-            switch (user) {
+            switch (userType) {
                 case Boss:
                     stage.setTitle("Car Rental - Panel Prezesa");
                     break;

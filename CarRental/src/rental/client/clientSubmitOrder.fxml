@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ComboBox fx:id="brand" layoutX="33.0" layoutY="237.0" prefHeight="25.0" prefWidth="253.0" promptText="Marka" />
@@ -37,7 +36,7 @@
       </Label>
       <Label alignment="CENTER" layoutY="410.0" prefHeight="17.0" prefWidth="253.0" styleClass="h1" stylesheets="@../resources/style.css" text="Kod rabatowy" textAlignment="CENTER" />
       <TextField fx:id="code" alignment="CENTER" layoutX="40.0" layoutY="446.0" prefHeight="25.0" prefWidth="174.0" promptText="6 znaków" />
-      <Button fx:id="submit" layoutX="502.0" layoutY="549.0" mnemonicParsing="false" text="Złóż zamówienie">
+      <Button fx:id="submit" layoutX="502.0" layoutY="549.0" mnemonicParsing="false" onAction="#submit_Clicked" text="Złóż zamówienie">
          <font>
             <Font size="16.0" />
          </font>

@@ -98,11 +98,13 @@ public class ClientController extends AController {
             case myCurrentOrdersLabel:
                 actualOrders = new ActualOrders();
                 contentBox.getChildren().setAll(actualOrders);
+                actualOrders.prepareData(user);
                 selectMenuItem(this.myCurrentOrdersLabel);
                 break;
             case myRentalHistoryLabel:               
                 historyOrders = new HistoryOrders();
                 contentBox.getChildren().setAll(historyOrders);
+                historyOrders.prepareData(user);
                 selectMenuItem(this.myRentalHistoryLabel);
                 break;
                 
@@ -130,6 +132,7 @@ public class ClientController extends AController {
             case submitOrder:
                 submitOrderClass = new SubmitOrder();
                 contentBox.getChildren().setAll(submitOrderClass);
+                submitOrderClass.initializeComponent(user);
                 selectMenuItem(this.submitOrder);
                 break;
         }
