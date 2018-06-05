@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" stylesheets="@../resources/style.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="190.0" layoutY="78.0" prefHeight="27.0" prefWidth="129.0" text="Samochód">
          <font>
@@ -49,7 +49,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="291.0" layoutY="403.0" mnemonicParsing="false" text="Dodaj">
+      <Button layoutX="291.0" layoutY="403.0" mnemonicParsing="false" styleClass="default_button" text="Dodaj">
          <font>
             <Font size="14.0" />
          </font>
@@ -74,7 +74,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="660.0" text="Nowy samochód" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Nowy samochód" textAlignment="CENTER">
          <font>
             <Font name="Verdana Bold" size="18.0" />
          </font>
