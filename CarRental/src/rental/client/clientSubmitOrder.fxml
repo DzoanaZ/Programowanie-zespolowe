@@ -10,19 +10,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" stylesheets="@../resources/style.css" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ComboBox fx:id="brand" layoutX="33.0" layoutY="237.0" prefHeight="25.0" prefWidth="253.0" promptText="Marka" />
       <ComboBox fx:id="model" cache="true" layoutX="33.0" layoutY="290.0" prefHeight="25.0" prefWidth="253.0" promptText="Model" />
       <ComboBox fx:id="engine" layoutX="33.0" layoutY="341.0" prefHeight="25.0" prefWidth="253.0" promptText="Silnik" />
       <ComboBox fx:id="city" layoutX="33.0" layoutY="185.0" prefHeight="25.0" prefWidth="253.0" promptText="Miasto" />
-      <Label alignment="CENTER" layoutX="33.0" layoutY="142.0" prefHeight="17.0" prefWidth="253.0" styleClass="h1" stylesheets="@../resources/style.css" text="Wybierz samochód" textAlignment="CENTER" />
-      <Label alignment="CENTER" layoutX="371.0" layoutY="142.0" prefHeight="17.0" prefWidth="253.0" styleClass="h1" stylesheets="@../resources/style.css" text="Metoda płatności" textAlignment="CENTER" />
+      <Label layoutX="33.0" layoutY="142.0" prefHeight="17.0" prefWidth="253.0" styleClass="h2" text="Wybierz samochód" textAlignment="CENTER" />
+      <Label layoutX="371.0" layoutY="142.0" prefHeight="17.0" prefWidth="253.0" styleClass="h2" text="Metoda płatności" textAlignment="CENTER" />
       <RadioButton fx:id="transfer" layoutX="359.0" layoutY="183.0" mnemonicParsing="false" text="Przelew" />
       <RadioButton fx:id="cash" layoutX="359.0" layoutY="241.0" mnemonicParsing="false" text="Gotówka" />
       <RadioButton fx:id="card" layoutX="359.0" layoutY="212.0" mnemonicParsing="false" text="Karta płatnicza" />
-      <Label alignment="CENTER" layoutX="37.0" layoutY="15.0" prefHeight="17.0" prefWidth="253.0" styleClass="h1" stylesheets="@../resources/style.css" text="Wypożycz w okresie" textAlignment="CENTER" />
+      <Label layoutX="37.0" layoutY="15.0" prefHeight="37.0" prefWidth="261.0" styleClass="h2" text="Wypożycz w okresie" textAlignment="CENTER" />
       <DatePicker fx:id="dateOfRent" layoutX="33.0" layoutY="85.0" />
       <DatePicker fx:id="dateOfReturn" layoutX="248.0" layoutY="85.0" />
       <Label layoutX="51.0" layoutY="61.0" prefHeight="17.0" prefWidth="112.0" text="Data wypożyczenia" />
@@ -35,9 +34,9 @@
             <Font name="Consolas Bold" size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutY="410.0" prefHeight="17.0" prefWidth="253.0" styleClass="h1" stylesheets="@../resources/style.css" text="Kod rabatowy" textAlignment="CENTER" />
-      <TextField fx:id="code" alignment="CENTER" layoutX="40.0" layoutY="446.0" prefHeight="25.0" prefWidth="174.0" promptText="6 znaków" />
-      <Button fx:id="submit" layoutX="502.0" layoutY="549.0" mnemonicParsing="false" text="Złóż zamówienie">
+      <Label layoutX="33.0" layoutY="411.0" prefHeight="17.0" prefWidth="253.0" styleClass="h2" text="Kod rabatowy" textAlignment="CENTER" />
+      <TextField fx:id="code" alignment="CENTER" layoutX="33.0" layoutY="446.0" prefHeight="25.0" prefWidth="174.0" promptText="6 znaków" />
+      <Button fx:id="submit" layoutX="502.0" layoutY="549.0" mnemonicParsing="false" styleClass="default_button" text="Złóż zamówienie">
          <font>
             <Font size="16.0" />
          </font>
