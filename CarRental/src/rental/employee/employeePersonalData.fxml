@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" style="-fx-background-color: white;" stylesheets="@../resources/style.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" style="-fx-background-color: white;" stylesheets="@../resources/style.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="230.0" layoutY="78.0" text="Imię">
          <font>
@@ -31,27 +32,27 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="291.0" layoutY="76.0">
+      <TextField fx:id="firstNameField" layoutX="291.0" layoutY="76.0" onKeyReleased="#dataModified">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="291.0" layoutY="117.0">
+      <TextField fx:id="surnameField" layoutX="291.0" layoutY="117.0" onKeyReleased="#dataModified">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="291.0" layoutY="159.0">
+      <TextField fx:id="telField" layoutX="291.0" layoutY="159.0" onKeyReleased="#dataModified">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailField" layoutX="291.0" layoutY="205.0">
+      <TextField fx:id="emailField" layoutX="291.0" layoutY="205.0" onKeyReleased="#dataModified">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="295.0" layoutY="256.0" mnemonicParsing="false" styleClass="default_button" text="Zapisz">
+      <Button fx:id="saveButton" layoutX="295.0" layoutY="256.0" mnemonicParsing="false" onAction="#updatePersonalData_Click" styleClass="default_button" text="Zapisz">
          <font>
             <Font size="14.0" />
          </font>
@@ -61,22 +62,22 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="291.0" layoutY="353.0">
+      <PasswordField fx:id="oldPasswordField" layoutX="291.0" layoutY="353.0">
          <font>
             <Font size="14.0" />
          </font>
-      </TextField>
+      </PasswordField>
       <Label layoutX="187.0" layoutY="416.0" text="Nowe hasło" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="291.0" layoutY="414.0">
+      <PasswordField fx:id="newPasswordField" layoutX="291.0" layoutY="414.0">
          <font>
             <Font size="14.0" />
          </font>
-      </TextField>
-      <Button layoutX="289.0" layoutY="518.0" mnemonicParsing="false" styleClass="default_button" text="Zmień hasło">
+      </PasswordField>
+      <Button layoutX="289.0" layoutY="518.0" mnemonicParsing="false" onAction="#changedPassword_Click" styleClass="default_button" text="Zmień hasło">
          <font>
             <Font size="14.0" />
          </font>
@@ -86,11 +87,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="291.0" layoutY="463.0">
+      <PasswordField fx:id="confirmPasswordField" layoutX="291.0" layoutY="463.0">
          <font>
             <Font size="14.0" />
          </font>
-      </TextField>
+      </PasswordField>
       <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Moje dane" textAlignment="CENTER">
          <font>
             <Font name="Verdana Bold" size="18.0" />

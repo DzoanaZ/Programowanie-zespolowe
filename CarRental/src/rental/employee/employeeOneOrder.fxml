@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -11,34 +12,30 @@
             <Font name="Verdana Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="17.0" layoutY="45.0" text="Data wypożyczenia:" />
+      <Label layoutX="17.0" layoutY="43.0" text="Data wypożyczenia:" />
       <Label fx:id="dateOfRent" layoutX="17.0" layoutY="62.0" text="07/05/2018">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="159.0" layoutY="44.0" text="Deklarowana data zwrotu:" />
+      <Label layoutX="159.0" layoutY="42.0" text="Deklarowana data zwrotu:" />
       <Label fx:id="dateOfReturn" layoutX="159.0" layoutY="61.0" text="17/05/2018">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="totalCost" layoutX="447.0" layoutY="57.0" text="806,97 zł">
+      <Label fx:id="totalCost" layoutX="447.0" layoutY="59.0" text="806,97 zł">
          <font>
             <Font name="Consolas Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="447.0" layoutY="43.0" text="Koszt:" />
-      <Label fx:id="status" alignment="CENTER" layoutX="290.0" layoutY="63.0" prefHeight="18.0" prefWidth="145.0" text="Wypożyczony" textAlignment="CENTER" textFill="#3fcc26">
-         <font>
-            <Font name="Verdana Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="344.0" layoutY="45.0" text="Status:" />
+      <Label layoutX="447.0" layoutY="41.0" text="Koszt:" />
+      <Label layoutX="344.0" layoutY="43.0" text="Status:" />
       <Label fx:id="cityRent" alignment="CENTER_RIGHT" layoutX="415.0" layoutY="7.0" prefHeight="20.0" prefWidth="179.0" text="RZESZÓW" textAlignment="RIGHT">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <ComboBox fx:id="status" layoutX="302.0" layoutY="62.0" prefWidth="130.0" />
    </children>
 </fx:root>

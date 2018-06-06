@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -341,7 +342,9 @@ public class SubmitOrder extends AnchorPane {
             pstmt.setInt(2, Integer.parseInt(user.getId()));
             pstmt.setObject(3, dateOfRent.getValue());
             pstmt.setObject(4, dateOfReturn.getValue());
-            pstmt.setDate(5, java.sql.Date.valueOf(java.time.LocalDate.now()));
+            LocalDate today = LocalDate.now();
+            pstmt.setObject(5, today);
+//pstmt.setObject(5, today.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
             pstmt.setString(6, payment);
             
             pstmt.execute();

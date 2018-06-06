@@ -1,8 +1,10 @@
 package rental.employee;
 
 import java.io.IOException;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -15,7 +17,7 @@ public class OneOrder extends AnchorPane{
     @FXML
     Label dateOfReturn;
     @FXML
-    Label status;
+    ComboBox status;
     @FXML
     Label totalCost;
     @FXML
@@ -73,12 +75,22 @@ public class OneOrder extends AnchorPane{
         this.cityRent.setText(cityRent.toUpperCase());
     }
 
-    public Label getStatus() {
-        return status;
+    public String getSelectedStatus() {
+        return status.getSelectionModel().getSelectedItem().toString();
     }
 
-    public void setStatus(String status) {
-        this.status.setText(status);
+    public ComboBox getStatus(){
+        return status;
+    }
+    
+    public void setAllStatus(ObservableList<String> statusItems){
+        this.status.getItems().setAll(statusItems);
+    }
+    
+    public void setSelectStatus(String status) {
+        this.status.getSelectionModel().select(status);
+        this.status.setValue(status);
+        //this.status.getSelectionModel().select(1);
     }
     
     
@@ -88,7 +100,7 @@ public class OneOrder extends AnchorPane{
         this.setDateOfRent(dateOfRent);
         this.setDateOfReturn(dateOfReturn);
         this.setTotalCost(totalCost);
-        this.setStatus(status);
+        this.setSelectStatus(status);
         this.setCityRent(cityRent);
     }
 }

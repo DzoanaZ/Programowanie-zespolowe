@@ -92,12 +92,13 @@ public class EmployeeController extends AController {
             case myPersonalDataLabel:
                 personalData = new PersonalData();
                 contentBox.getChildren().setAll(personalData);
-                personalData.setEmail(user.getEmail());
+                personalData.setUserAndPrepareFields(user);
                 selectMenuItem(this.myPersonalDataLabel);
                 break;
             case myCurrentOrdersLabel:
                 actualOrders = new ActualOrders();
                 contentBox.getChildren().setAll(actualOrders);
+                actualOrders.prepareData(user);
                 selectMenuItem(this.myCurrentOrdersLabel);
                 break;
             case myRentalHistoryLabel:               
@@ -108,6 +109,7 @@ public class EmployeeController extends AController {
             case processOrderLabel:               
                 processOrders = new ProcessOrders();
                 contentBox.getChildren().setAll(processOrders);
+                processOrders.prepareData(user);
                 selectMenuItem(this.processOrderLabel);
                 break;
             case dynowLabel:
