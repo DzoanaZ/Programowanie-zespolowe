@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="620.0" maxWidth="900.0" minHeight="620.0" minWidth="900.0" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rental.client.ClientController">
+<BorderPane maxHeight="620.0" maxWidth="900.0" minHeight="620.0" minWidth="900.0" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rental.client.ClientController">
    <left>
       <Accordion style="-fx-background-color: white;" stylesheets="@../resources/style.css" BorderPane.alignment="CENTER">
         <panes>
