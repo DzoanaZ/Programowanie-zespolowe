@@ -10,10 +10,10 @@ public class EmployeeController extends AController {
 
     private Label activeLabel;
     private PersonalData personalData;
-    private ActualOrders actualOrders;
-    private HistoryOrders historyOrders;
+    private OrdersActual actualOrders;
+    private OrdersHistory historyOrders;
     private AvailableCars availableCars;
-    private ProcessOrders processOrders;
+    private OrdersExpect processOrders;
         
     @FXML
     private AnchorPane contentBox;
@@ -21,11 +21,11 @@ public class EmployeeController extends AController {
     @FXML
     private Label myPersonalDataLabel;
     @FXML
-    private Label myCurrentOrdersLabel;
+    private Label currentOrdersLabel;
     @FXML
-    private Label myRentalHistoryLabel;
+    private Label historyOrdersLabel;
     @FXML
-    private Label processOrderLabel;
+    private Label expectOrdersLabel;
 
     @FXML
     private Label rzeszowLabel;
@@ -56,14 +56,14 @@ public class EmployeeController extends AController {
             if (selectedItem.getId().equals("myPersonalDataLabel")) {
                 item = LabelType.myPersonalDataLabel;
             } 
-            else if (selectedItem.getId().equals("myCurrentOrdersLabel")) {
-                item = LabelType.myCurrentOrdersLabel;
+            else if (selectedItem.getId().equals("currentOrdersLabel")) {
+                item = LabelType.currentOrdersLabel;
             } 
-            else if (selectedItem.getId().equals("myRentalHistoryLabel")) {
-                item = LabelType.myRentalHistoryLabel;
+            else if (selectedItem.getId().equals("historyOrdersLabel")) {
+                item = LabelType.historyOrdersLabel;
             } 
-            else if (selectedItem.getId().equals("processOrderLabel")) {
-                item = LabelType.processOrderLabel;
+            else if (selectedItem.getId().equals("expectOrdersLabel")) {
+                item = LabelType.expectOrdersLabel;
             }
             else if (selectedItem.getId().equals("dynowLabel")) {
                 item = LabelType.dynowLabel;
@@ -95,22 +95,23 @@ public class EmployeeController extends AController {
                 personalData.setUserAndPrepareFields(user);
                 selectMenuItem(this.myPersonalDataLabel);
                 break;
-            case myCurrentOrdersLabel:
-                actualOrders = new ActualOrders();
+            case currentOrdersLabel:
+                actualOrders = new OrdersActual();
                 contentBox.getChildren().setAll(actualOrders);
                 actualOrders.prepareData(user);
-                selectMenuItem(this.myCurrentOrdersLabel);
+                selectMenuItem(this.currentOrdersLabel);
                 break;
-            case myRentalHistoryLabel:               
-                historyOrders = new HistoryOrders();
+            case historyOrdersLabel:               
+                historyOrders = new OrdersHistory();
                 contentBox.getChildren().setAll(historyOrders);
-                selectMenuItem(this.myRentalHistoryLabel);
+                historyOrders.prepareData(user);
+                selectMenuItem(this.historyOrdersLabel);
                 break;
-            case processOrderLabel:               
-                processOrders = new ProcessOrders();
+            case expectOrdersLabel:               
+                processOrders = new OrdersExpect();
                 contentBox.getChildren().setAll(processOrders);
                 processOrders.prepareData(user);
-                selectMenuItem(this.processOrderLabel);
+                selectMenuItem(this.expectOrdersLabel);
                 break;
             case dynowLabel:
                 availableCars = new AvailableCars("Dynów");
@@ -145,9 +146,9 @@ public class EmployeeController extends AController {
 
     enum LabelType {
         myPersonalDataLabel,
-        myCurrentOrdersLabel,
-        myRentalHistoryLabel,
-        processOrderLabel,
+        currentOrdersLabel,
+        historyOrdersLabel,
+        expectOrdersLabel,
         dynowLabel,
         jasloLabel,
         rzeszowLabel,

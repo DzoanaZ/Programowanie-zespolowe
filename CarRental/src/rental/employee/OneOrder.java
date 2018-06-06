@@ -23,6 +23,8 @@ public class OneOrder extends AnchorPane{
     @FXML
     Label cityRent;
     
+    private String orderId;
+    
     public OneOrder(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("employeeOneOrder.fxml"));
         fxmlLoader.setRoot(this);
@@ -90,17 +92,26 @@ public class OneOrder extends AnchorPane{
     public void setSelectStatus(String status) {
         this.status.getSelectionModel().select(status);
         this.status.setValue(status);
-        //this.status.getSelectionModel().select(1);
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
     
     
+    
     public void setOrderData(String nameOrder, String dateOfRent, String dateOfReturn, 
-                            String totalCost, String status, String cityRent){
+                            String totalCost, String status, String cityRent, String orderID){
         this.setNameOrder(nameOrder);
         this.setDateOfRent(dateOfRent);
         this.setDateOfReturn(dateOfReturn);
         this.setTotalCost(totalCost);
         this.setSelectStatus(status);
         this.setCityRent(cityRent);
+        this.setOrderId(orderID);
     }
 }

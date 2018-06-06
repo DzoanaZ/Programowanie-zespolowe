@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.layout.AnchorPane;
 
-public class ProcessOneOrder extends AnchorPane{
+public class OneOrderExpect extends AnchorPane{
     
     @FXML
     Label nameOrder;
@@ -26,8 +26,8 @@ public class ProcessOneOrder extends AnchorPane{
     
     String orderId;
     
-    public ProcessOneOrder(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("employeeProcessOneOrder.fxml"));
+    public OneOrderExpect(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("employeeOneOrderExpect.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

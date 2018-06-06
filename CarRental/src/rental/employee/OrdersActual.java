@@ -28,7 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import rental.User;
 import rental.resources.db.ConnectionDB;
 
-public class ActualOrders extends AnchorPane {
+public class OrdersActual extends AnchorPane {
 
     @FXML
     private ListView listActualOrders;
@@ -36,8 +36,8 @@ public class ActualOrders extends AnchorPane {
     private ObservableList<String> statusItems;
     private Map<String, ComboBox> statusmap;
 
-    public ActualOrders() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("employeeActualOrders.fxml"));
+    public OrdersActual() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("employeeOrdersActual.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -86,9 +86,11 @@ public class ActualOrders extends AnchorPane {
                             rs.getString("planowana_data_zwrotu"),
                             df.format(cena) + " zł",
                             rs.getString("status"),
-                            rs.getString("miasto"));
+                            rs.getString("miasto"),
+                            rs.getString("wypozyczenie_id")
+                    );
                     items.add(temp);
-                    statusmap.put(rs.getString("wypozyczenie_id"), temp.getStatus());
+                    statusmap.put(temp.getOrderId(), temp.getStatus());
                 }
                 listActualOrders.setItems(items);
             } catch (SQLException e) {
