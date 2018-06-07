@@ -130,6 +130,13 @@ public class ShowUser extends AnchorPane {
                 if (temp.getType().equalsIgnoreCase("S")) {
                     edit.getBossRadio().setSelected(true);
                     edit.getEmployeeRadio().setSelected(false);
+                }
+                else if (temp.getType().equalsIgnoreCase("K")) {
+                    edit.getBossRadio().setSelected(false);
+                    edit.getEmployeeRadio().setSelected(false);
+                    edit.getBossRadio().setVisible(false);
+                    edit.getEmployeeRadio().setVisible(false);
+                    edit.setPersonType("K");
                 } else {
                     edit.getEmployeeRadio().setSelected(true);
                     edit.getBossRadio().setSelected(false);
@@ -157,7 +164,17 @@ public class ShowUser extends AnchorPane {
                     pstmt.setString(3, edit.getFirstNameField().getText());
                     pstmt.setString(4, edit.getSurnameField().getText());
                     pstmt.setString(5, edit.getTelField().getText());
-                    String typ = (edit.getPersonType().equalsIgnoreCase("pracownik")) ? "P" : "S";
+                    String typ = null; 
+                            
+                            if(edit.getPersonType().equalsIgnoreCase("pracownik")){
+                                typ = "P";
+                            }
+                            else if(edit.getPersonType().equalsIgnoreCase("szef")){
+                                typ = "S";
+                            }
+                            else{
+                                typ = "K";
+                            }
                     pstmt.setString(6, typ);
                     pstmt.setString(7, temp.getUser_id());
                     pstmt.execute();
