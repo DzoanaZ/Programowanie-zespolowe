@@ -43,7 +43,7 @@ public class NewPerson extends AnchorPane {
 
     private ToggleGroup group = new ToggleGroup();
     private String personType;
-
+    
     private ObservableList<Node> children;
     private AnchorPane contentBox;
 
@@ -126,7 +126,7 @@ public class NewPerson extends AnchorPane {
     public void setPersonType(String personType) {
         this.personType = personType;
     }
-
+    
     private ObservableList<Node> nodeList;
 
     public NewPerson() {
@@ -215,8 +215,8 @@ public class NewPerson extends AnchorPane {
 
         });
     }
-
-    public void setNode(ObservableList<Node> nodeList) {
+    
+    public void setNode(ObservableList<Node> nodeList){
         nodeList.addAll(nodeList);
     }
 
@@ -228,8 +228,8 @@ public class NewPerson extends AnchorPane {
         personType = null;
         group.selectToggle(null);
     }
-
-    public void setChildren(ObservableList<Node> children, AnchorPane contentBox) {
+    
+    public void setChildren(ObservableList<Node> children, AnchorPane contentBox){
         this.children = children;
         this.contentBox = contentBox;
     }
