@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -34,6 +35,11 @@
             <Font size="14.0" />
          </font>
       </TextField>
+      <TextField fx:id="modelField" layoutX="291.0" layoutY="127.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
       <TextField fx:id="engineField" layoutX="291.0" layoutY="174.0">
          <font>
             <Font size="14.0" />
@@ -49,6 +55,17 @@
             <Font size="14.0" />
          </font>
       </TextField>
+      <TextField fx:id="numberField" layoutX="291.0" layoutY="310.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="availabilityField" layoutX="291.0" layoutY="359.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="cityField" layoutX="291.0" layoutY="406.0" prefHeight="30.0" prefWidth="175.0" />
       <Button fx:id="button" layoutX="291.0" layoutY="494.0" mnemonicParsing="false" styleClass="default_button" text="Dodaj">
          <font>
             <Font size="14.0" />
@@ -59,21 +76,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="numberField" layoutX="291.0" layoutY="310.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
       <Label alignment="CENTER_RIGHT" layoutX="227.0" layoutY="406.0" prefHeight="27.0" prefWidth="57.0" text="Miasto" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="cityField" layoutX="291.0" layoutY="404.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
       <Label fx:id="titleLabel" alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Nowy samochód" textAlignment="CENTER">
          <font>
             <Font name="Verdana Bold" size="18.0" />
@@ -85,21 +92,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="modelField" layoutX="291.0" layoutY="127.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Label alignment="CENTER_RIGHT" layoutX="227.0" layoutY="361.0" prefHeight="27.0" prefWidth="57.0" text="Miasto" textAlignment="RIGHT">
+      <Label alignment="CENTER_RIGHT" layoutX="181.0" layoutY="361.0" prefHeight="27.0" prefWidth="103.0" text="Dostępność" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="availabilityField" layoutX="291.0" layoutY="359.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
       <Label fx:id="backLabel" layoutX="307.0" layoutY="541.0" style="-fx-font-size: 8pt;" styleClass="menu_font" text="Wstecz" visible="false" />
    </children>
 </fx:root>

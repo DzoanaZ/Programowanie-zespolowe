@@ -42,10 +42,10 @@ public class OneAvailableCar extends AnchorPane {
 
         editLink.setOnMouseClicked((event) -> {
             System.out.println("Edit click");
-             NewCar newCar = new NewCar();
-             newCar.setChildren(children, contentBox);
-             newCar.prepareDataById(samochod_id);
-            contentBox.getChildren().setAll(newCar);
+             EditCar editCar = new EditCar();
+             editCar.setChildren(children, contentBox);
+             editCar.prepareDataById(samochod_id);
+            contentBox.getChildren().setAll(editCar);
         });
     }
     

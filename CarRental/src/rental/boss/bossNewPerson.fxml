@@ -55,7 +55,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="11.0" layoutY="75.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Dodaj nową osobę" textAlignment="CENTER">
+      <Label fx:id="title" alignment="CENTER" layoutX="11.0" layoutY="75.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Dodaj nową osobę" textAlignment="CENTER">
          <font>
             <Font name="Verdana Bold" size="18.0" />
          </font>

@@ -16,13 +16,13 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import rental.resources.db.ConnectionDB;
 
-public class NewCar extends AnchorPane {
+public class EditCar extends AnchorPane {
 
     @FXML
     Label titleLabel;
@@ -73,7 +73,7 @@ public class NewCar extends AnchorPane {
                 doorsField.setText(rs.getString("drzwi"));
                 numberField.setText(rs.getString("ilosc"));
                 availabilityField.setText(rs.getString("dostepne"));
-                priceField.setText(new DecimalFormat("#0.##").format(rs.getBigDecimal("cena")));
+                priceField.setText(new DecimalFormat("0.00").format(rs.getBigDecimal("cena")));
                 cityField.getSelectionModel().select(rs.getString("miasto"));
             }
         } catch (SQLException e) {
@@ -83,7 +83,7 @@ public class NewCar extends AnchorPane {
         }
     }
 
-    public NewCar() {
+    public EditCar() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bossNewCar.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -93,12 +93,16 @@ public class NewCar extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        titleLabel.setText("Wprowadź nowy pojazd");
+        titleLabel.setText("Edytuj dane pojazdu");
         backLabel.visibleProperty().set(true);
-        button.setText("Dodaj");
-        backLabel.setVisible(false);
+        button.setText("Zatwierdź");
 
         cityField.getItems().setAll("Dynów", "Jasło", "Rzeszów", "Stalowa Wola");
+
+        backLabel.setOnMouseClicked((event) -> {
+            contentBox.getChildren().setAll(children);
+            ((AvailableCars) contentBox).prepareFields();
+        });
 
         button.setOnMouseClicked((event) -> {
 
@@ -110,15 +114,17 @@ public class NewCar extends AnchorPane {
                     && this.priceField.getText() != null && !this.priceField.getText().equals("")
                     && this.cityField.getSelectionModel().getSelectedItem().toString() != null
                     && !this.cityField.getSelectionModel().getSelectedItem().toString().equals("")) {
+
                 Alert alert = new Alert(AlertType.CONFIRMATION);
                 alert.setTitle("Wymagane potwierdzenie");
-                alert.setHeaderText("Czy na pewno chcesz dodać nowy pojazd?");
+                alert.setHeaderText("Czy na pewno chcesz zaktualizować pojazd?");
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
 
-                    String sql = "INSERT INTO samochody (marka, model, silnik, drzwi, "
-                            + "ilosc, dostepne, cena, miasto) VALUES (?,?,?,?,?,?,?,?)";
+                    String sql = "UPDATE samochody SET marka = ?, model = ?, silnik = ?, drzwi = ?, "
+                            + "ilosc = ?, dostepne = ?, cena = ?, miasto = ? "
+                            + "WHERE samochod_id = " + this.samochod_id;
 
                     try (Connection conn = ConnectionDB.connect();
                             PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -131,19 +137,20 @@ public class NewCar extends AnchorPane {
                         pstmt.setString(6, this.availabilityField.getText());
                         pstmt.setBigDecimal(7, new BigDecimal(this.priceField.getText().replaceAll(",", ".")));
                         pstmt.setString(8, this.cityField.getSelectionModel().getSelectedItem().toString());
-                        pstmt.execute();
+                        pstmt.executeUpdate();
 
-                        clearFields();
+                        contentBox.getChildren().setAll(children);
+                        ((AvailableCars) contentBox).prepareFields();
 
                     } catch (SQLException e) {
                         System.out.println(e.getMessage());
                         alert = new Alert(AlertType.ERROR);
                         alert.setTitle("Błąd");
-                        alert.setHeaderText("Nie udało się dodać nowego pojazdu. Spróbuj ponownie później.");
+                        alert.setHeaderText("Nie udało się zapisać nowych danych. Spróbuj ponownie później.");
                         alert.show();
                     }
                 }
-            }else {
+            } else {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Błąd");
                 alert.setHeaderText("Sprawdź poprawność danych i spróbuj ponownie.");
@@ -152,14 +159,8 @@ public class NewCar extends AnchorPane {
         });
     }
 
-    private void clearFields() {
-        brandField.clear();
-        modelField.clear();
-        engineField.clear();
-        doorsField.clear();
-        numberField.clear();
-        availabilityField.clear();
-        priceField.clear();
-        cityField.getSelectionModel().clearSelection();
+    public void setChildren(ObservableList<Node> children, AnchorPane contentBox) {
+        this.children = children;
+        this.contentBox = contentBox;
     }
 }
