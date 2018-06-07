@@ -17,11 +17,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.layout.AnchorPane;
 import rental.User;
 import rental.resources.db.ConnectionDB;
 
-public class LogonController {
-
+public class LogonController extends AnchorPane {
+    @FXML
+    AnchorPane anchorPane;
     @FXML
     TextField loginField;
     @FXML
@@ -131,5 +135,26 @@ public class LogonController {
         Boss,
         Employee,
         Client
+    }
+    
+    @FXML
+    public void signupLabel_Click(){
+        
+        ObservableList<Node> children = FXCollections.observableArrayList();
+        children.addAll(anchorPane.getChildren());
+        SignUp signUp = new SignUp(this.anchorPane, children);
+        anchorPane.getChildren().setAll(signUp);
+    }
+    
+    public LogonController showPanel(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logonPanel.fxml"));
+        fxmlLoader.getController();
+        
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+        return this;
     }
 }

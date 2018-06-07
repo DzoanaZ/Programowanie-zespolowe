@@ -39,7 +39,7 @@ public class HistoryOrders extends AnchorPane{
             String sql = "SELECT marka, model, data_wypozyczenia, planowana_data_zwrotu, samochody.cena, status, miasto FROM wypozyczenia "
                     + "INNER JOIN uzytkownicy ON uzytkownicy.user_id = wypozyczenia.uzytkownik_id "
                     + "INNER JOIN samochody ON samochody.samochod_id = wypozyczenia.samochod_id "
-                    + "WHERE uzytkownik_id = " + user.getId()+" (AND status = 'Zakończone' OR status = 'Anulowane') ORDER BY data_wypozyczenia DESC";
+                    + "WHERE uzytkownik_id = " + user.getId()+" AND (status = 'Zakończone' OR status = 'Anulowane') ORDER BY data_wypozyczenia DESC";
 
             try (Connection conn = ConnectionDB.connect();
                     PreparedStatement pstmt = conn.prepareStatement(sql)) {
