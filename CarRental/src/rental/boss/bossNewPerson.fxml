@@ -8,60 +8,60 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" stylesheets="@../resources/style.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" stylesheets="@../resources/style.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="230.0" layoutY="78.0" text="Imię">
+      <Label layoutX="230.0" layoutY="139.0" text="Imię">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="191.0" layoutY="119.0" text="Nazwisko">
+      <Label layoutX="191.0" layoutY="180.0" text="Nazwisko">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="208.0" layoutY="161.0" text="Telefon">
+      <Label layoutX="208.0" layoutY="222.0" text="Telefon">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="216.0" layoutY="205.0" text="E-mail" textAlignment="RIGHT">
+      <Label layoutX="216.0" layoutY="266.0" text="E-mail" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="291.0" layoutY="76.0">
+      <TextField fx:id="firstNameField" layoutX="291.0" layoutY="137.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="291.0" layoutY="117.0">
+      <TextField fx:id="surnameField" layoutX="291.0" layoutY="178.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="291.0" layoutY="159.0">
+      <TextField fx:id="telField" layoutX="291.0" layoutY="220.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailField" layoutX="291.0" layoutY="205.0">
+      <TextField fx:id="emailField" layoutX="291.0" layoutY="266.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="322.0" layoutY="341.0" mnemonicParsing="false" styleClass="default_button" text="Dodaj">
+      <Button fx:id="addButton" layoutX="322.0" layoutY="402.0" mnemonicParsing="false" styleClass="default_button" text="Dodaj">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Dodaj nową osobę" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="11.0" layoutY="75.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Dodaj nową osobę" textAlignment="CENTER">
          <font>
             <Font name="Verdana Bold" size="18.0" />
          </font>
       </Label>
-      <Separator layoutX="215.0" layoutY="321.0" prefHeight="0.0" prefWidth="271.0" />
-      <RadioButton layoutX="266.0" layoutY="275.0" mnemonicParsing="false" text="Pracownik" />
-      <RadioButton layoutX="379.0" layoutY="275.0" mnemonicParsing="false" text="Klient" />
+      <Separator layoutX="215.0" layoutY="382.0" prefHeight="0.0" prefWidth="271.0" />
+      <RadioButton fx:id="employeeRadio" layoutX="266.0" layoutY="336.0" mnemonicParsing="false" text="Pracownik" />
+      <RadioButton fx:id="bossRadio" layoutX="379.0" layoutY="336.0" mnemonicParsing="false" text="Prezes" />
    </children>
 </fx:root>

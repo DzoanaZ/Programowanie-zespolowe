@@ -4,9 +4,10 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.layout.AnchorPane;
 
-public class ProcessOneOrder extends AnchorPane{
+public class OneOrderExpect extends AnchorPane{
     
     @FXML
     Label nameOrder;
@@ -20,9 +21,13 @@ public class ProcessOneOrder extends AnchorPane{
     Label totalCost;
     @FXML
     Label cityRent;
+    @FXML
+    MenuButton menuStatus;
     
-    public ProcessOneOrder(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bossProcessOneOrder.fxml"));
+    String orderId;
+    
+    public OneOrderExpect(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bossOneOrderExpect.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -80,15 +85,34 @@ public class ProcessOneOrder extends AnchorPane{
     public void setStatus(String status) {
         this.status.setText(status);
     }
+
+    public MenuButton getMenuStatus() {
+        return menuStatus;
+    }
+
+    public void setMenuStatus(MenuButton menuStatus) {
+        this.menuStatus = menuStatus;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+    
+    
     
     
     public void setOrderData(String nameOrder, String dateOfRent, String dateOfReturn, 
-                            String totalCost, String status, String cityRent){
+                            String totalCost, String status, String cityRent, String orderId){
         this.setNameOrder(nameOrder);
         this.setDateOfRent(dateOfRent);
         this.setDateOfReturn(dateOfReturn);
         this.setTotalCost(totalCost);
         this.setStatus(status);
         this.setCityRent(cityRent);
+        this.setOrderId(orderId);
     }
 }

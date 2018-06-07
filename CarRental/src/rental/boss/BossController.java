@@ -1,6 +1,5 @@
 package rental.boss;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
@@ -13,10 +12,10 @@ public class BossController extends AController {
 
     private Label activeLabel;
     private PersonalData personalData;
-    private ActualOrders actualOrders;
-    private HistoryOrders historyOrders;
+    private OrdersActual ordersActual;
+    private OrdersHistory ordersHistory;
     private AvailableCars availableCars;
-    private ProcessOrders processOrders;
+    private OrdersExpect ordersExpect;
     private NewCar newCar;
     private NewPerson newPerson;
         
@@ -26,11 +25,11 @@ public class BossController extends AController {
     @FXML
     private Label myPersonalDataLabel;
     @FXML
-    private Label myCurrentOrdersLabel;
+    private Label actualOrdersLabel;
     @FXML
-    private Label myRentalHistoryLabel;
+    private Label historyOrdersLabel;
     @FXML
-    private Label processOrderLabel;
+    private Label expectOrdersLabel;
 
     @FXML
     private Label rzeszowLabel;
@@ -66,14 +65,14 @@ public class BossController extends AController {
             if (selectedItem.getId().equals("myPersonalDataLabel")) {
                 item = LabelType.myPersonalDataLabel;
             } 
-            else if (selectedItem.getId().equals("myCurrentOrdersLabel")) {
-                item = LabelType.myCurrentOrdersLabel;
+            else if (selectedItem.getId().equals("actualOrdersLabel")) {
+                item = LabelType.actualOrdersLabel;
             } 
-            else if (selectedItem.getId().equals("myRentalHistoryLabel")) {
-                item = LabelType.myRentalHistoryLabel;
+            else if (selectedItem.getId().equals("historyOrdersLabel")) {
+                item = LabelType.historyOrdersLabel;
             } 
-            else if (selectedItem.getId().equals("processOrderLabel")) {
-                item = LabelType.processOrderLabel;
+            else if (selectedItem.getId().equals("expectOrdersLabel")) {
+                item = LabelType.expectOrderLabel;
             }
             else if (selectedItem.getId().equals("dynowLabel")) {
                 item = LabelType.dynowLabel;
@@ -112,20 +111,23 @@ public class BossController extends AController {
                 personalData.setUserAndPrepareFields(user);
                 selectMenuItem(this.myPersonalDataLabel);
                 break;
-            case myCurrentOrdersLabel:
-                actualOrders = new ActualOrders();
-                contentBox.getChildren().setAll(actualOrders);
-                selectMenuItem(this.myCurrentOrdersLabel);
+            case actualOrdersLabel:
+                ordersActual = new OrdersActual();
+                contentBox.getChildren().setAll(ordersActual);
+                ordersActual.prepareData(user);
+                selectMenuItem(this.actualOrdersLabel);
                 break;
-            case myRentalHistoryLabel:               
-                historyOrders = new HistoryOrders();
-                contentBox.getChildren().setAll(historyOrders);
-                selectMenuItem(this.myRentalHistoryLabel);
+            case historyOrdersLabel:               
+                ordersHistory = new OrdersHistory();
+                contentBox.getChildren().setAll(ordersHistory);
+                ordersHistory.prepareData(user);
+                selectMenuItem(this.historyOrdersLabel);
                 break;
-            case processOrderLabel:               
-                processOrders = new ProcessOrders();
-                contentBox.getChildren().setAll(processOrders);
-                selectMenuItem(this.processOrderLabel);
+            case expectOrderLabel:               
+                ordersExpect = new OrdersExpect();
+                contentBox.getChildren().setAll(ordersExpect);
+                ordersExpect.prepareData(user);
+                selectMenuItem(this.expectOrdersLabel);
                 break;
             case dynowLabel:
                 availableCars = new AvailableCars("Dynów");
@@ -174,15 +176,14 @@ public class BossController extends AController {
 
     enum LabelType {
         myPersonalDataLabel,
-        myCurrentOrdersLabel,
-        myRentalHistoryLabel,
-        processOrderLabel,
+        actualOrdersLabel,
+        historyOrdersLabel,
+        expectOrderLabel,
         dynowLabel,
         jasloLabel,
         rzeszowLabel,
         stalowaLabel,
         newCarLabel,
-        newPersonLabel
-        
+        newPersonLabel  
     }
 }

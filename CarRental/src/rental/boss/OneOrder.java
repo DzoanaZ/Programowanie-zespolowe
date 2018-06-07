@@ -1,8 +1,10 @@
 package rental.boss;
 
 import java.io.IOException;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -15,11 +17,13 @@ public class OneOrder extends AnchorPane{
     @FXML
     Label dateOfReturn;
     @FXML
-    Label status;
+    ComboBox status;
     @FXML
     Label totalCost;
     @FXML
     Label cityRent;
+    
+    private String orderId;
     
     public OneOrder(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bossOneOrder.fxml"));
@@ -73,22 +77,41 @@ public class OneOrder extends AnchorPane{
         this.cityRent.setText(cityRent.toUpperCase());
     }
 
-    public Label getStatus() {
-        return status;
+    public String getSelectedStatus() {
+        return status.getSelectionModel().getSelectedItem().toString();
     }
 
-    public void setStatus(String status) {
-        this.status.setText(status);
+    public ComboBox getStatus(){
+        return status;
     }
+    
+    public void setAllStatus(ObservableList<String> statusItems){
+        this.status.getItems().setAll(statusItems);
+    }
+    
+    public void setSelectStatus(String status) {
+        this.status.getSelectionModel().select(status);
+        this.status.setValue(status);
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+    
     
     
     public void setOrderData(String nameOrder, String dateOfRent, String dateOfReturn, 
-                            String totalCost, String status, String cityRent){
+                            String totalCost, String status, String cityRent, String orderID){
         this.setNameOrder(nameOrder);
         this.setDateOfRent(dateOfRent);
         this.setDateOfReturn(dateOfReturn);
         this.setTotalCost(totalCost);
-        this.setStatus(status);
+        this.setSelectStatus(status);
         this.setCityRent(cityRent);
+        this.setOrderId(orderID);
     }
 }
