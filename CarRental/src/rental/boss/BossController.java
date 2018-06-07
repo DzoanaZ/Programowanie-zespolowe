@@ -18,6 +18,7 @@ public class BossController extends AController {
     private OrdersExpect ordersExpect;
     private NewCar newCar;
     private NewPerson newPerson;
+    private ShowUser showUser;
         
     @FXML
     private AnchorPane contentBox;
@@ -30,6 +31,10 @@ public class BossController extends AController {
     private Label historyOrdersLabel;
     @FXML
     private Label expectOrdersLabel;
+    @FXML
+    private Label customersLabel;
+    @FXML
+    private Label employeesLabel;
 
     @FXML
     private Label rzeszowLabel;
@@ -91,6 +96,12 @@ public class BossController extends AController {
             }
             else if (selectedItem.getId().equals("newPersonLabel")) {
                 item = LabelType.newPersonLabel;
+            }
+            else if (selectedItem.getId().equals("customersLabel")) {
+                item = LabelType.customersLabel;
+            }
+            else if (selectedItem.getId().equals("employeesLabel")) {
+                item = LabelType.employeesLabel;
             }
         }
         if (item != null) {
@@ -163,6 +174,18 @@ public class BossController extends AController {
                 contentBox.getChildren().setAll(newPerson);
                 selectMenuItem(this.newPersonLabel);
                 break;
+            case customersLabel:
+                showUser = new ShowUser("Klienci");
+                contentBox.getChildren().setAll(showUser);
+                showUser.prepareData(user);
+                selectMenuItem(this.customersLabel);
+                break;
+            case employeesLabel:
+                showUser = new ShowUser("Pracownicy");
+                contentBox.getChildren().setAll(showUser);
+                showUser.prepareData(user);
+                selectMenuItem(this.employeesLabel);
+                break;
         }
     }
 
@@ -184,6 +207,8 @@ public class BossController extends AController {
         rzeszowLabel,
         stalowaLabel,
         newCarLabel,
-        newPersonLabel  
+        newPersonLabel,
+        customersLabel,
+        employeesLabel
     }
 }

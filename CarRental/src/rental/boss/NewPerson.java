@@ -1,17 +1,18 @@
 package rental.boss;
 
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -19,11 +20,12 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
-import static javafx.scene.web.WebEvent.ALERT;
 import rental.resources.db.ConnectionDB;
 
 public class NewPerson extends AnchorPane {
 
+    @FXML
+    private Label title;
     @FXML
     private TextField firstNameField;
     @FXML
@@ -41,6 +43,91 @@ public class NewPerson extends AnchorPane {
 
     private ToggleGroup group = new ToggleGroup();
     private String personType;
+    
+    private ObservableList<Node> children;
+    private AnchorPane contentBox;
+
+    public Label getTitle() {
+        return title;
+    }
+
+    public void setTitle(Label title) {
+        this.title = title;
+    }
+
+    public Button getAddButton() {
+        return addButton;
+    }
+
+    public void setAddButton(Button addButton) {
+        this.addButton = addButton;
+    }
+
+    public TextField getFirstNameField() {
+        return firstNameField;
+    }
+
+    public void setFirstNameField(TextField firstNameField) {
+        this.firstNameField = firstNameField;
+    }
+
+    public TextField getSurnameField() {
+        return surnameField;
+    }
+
+    public void setSurnameField(TextField surnameField) {
+        this.surnameField = surnameField;
+    }
+
+    public TextField getTelField() {
+        return telField;
+    }
+
+    public void setTelField(TextField telField) {
+        this.telField = telField;
+    }
+
+    public TextField getEmailField() {
+        return emailField;
+    }
+
+    public void setEmailField(TextField emailField) {
+        this.emailField = emailField;
+    }
+
+    public RadioButton getEmployeeRadio() {
+        return employeeRadio;
+    }
+
+    public void setEmployeeRadio(RadioButton employeeRadio) {
+        this.employeeRadio = employeeRadio;
+    }
+
+    public RadioButton getBossRadio() {
+        return bossRadio;
+    }
+
+    public void setBossRadio(RadioButton bossRadio) {
+        this.bossRadio = bossRadio;
+    }
+
+    public ToggleGroup getGroup() {
+        return group;
+    }
+
+    public void setGroup(ToggleGroup group) {
+        this.group = group;
+    }
+
+    public String getPersonType() {
+        return personType;
+    }
+
+    public void setPersonType(String personType) {
+        this.personType = personType;
+    }
+    
+    private ObservableList<Node> nodeList;
 
     public NewPerson() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bossNewPerson.fxml"));
@@ -54,6 +141,7 @@ public class NewPerson extends AnchorPane {
         }
         employeeRadio.setToggleGroup(group);
         bossRadio.setToggleGroup(group);
+        nodeList = FXCollections.observableArrayList();
 
         group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
@@ -123,6 +211,10 @@ public class NewPerson extends AnchorPane {
 
         });
     }
+    
+    public void setNode(ObservableList<Node> nodeList){
+        nodeList.addAll(nodeList);
+    }
 
     private void clearFields() {
         emailField.clear();
@@ -131,6 +223,11 @@ public class NewPerson extends AnchorPane {
         telField.clear();
         personType = null;
         group.selectToggle(null);
+    }
+    
+    public void setChildren(ObservableList<Node> children, AnchorPane contentBox){
+        this.children = children;
+        this.contentBox = contentBox;
     }
 
 }

@@ -134,6 +134,7 @@ public class NewCar extends AnchorPane {
                     alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Błąd");
                     alert.setHeaderText("Nie udało się zapisać nowych danych. Spróbuj ponownie później.");
+                    alert.show();
                 }
             }
         });
