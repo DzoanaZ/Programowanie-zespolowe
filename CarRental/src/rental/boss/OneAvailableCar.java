@@ -1,12 +1,16 @@
 package rental.boss;
 
 import java.io.IOException;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 
 public class OneAvailableCar extends AnchorPane {
+    private String samochod_id;
     @FXML
     Label carName;
     @FXML
@@ -19,6 +23,11 @@ public class OneAvailableCar extends AnchorPane {
     Label pieces;
     @FXML
     Label city;
+    @FXML
+    Hyperlink editLink;
+    
+    private ObservableList<Node> children;
+    private AnchorPane contentBox;
 
     public OneAvailableCar(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bossOneAvailableCar.fxml"));
@@ -30,6 +39,19 @@ public class OneAvailableCar extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        editLink.setOnMouseClicked((event) -> {
+            System.out.println("Edit click");
+             NewCar newCar = new NewCar();
+             newCar.setChildren(children, contentBox);
+             newCar.prepareDataById(samochod_id);
+            contentBox.getChildren().setAll(newCar);
+        });
+    }
+    
+    public void setChildren(ObservableList<Node> children, AnchorPane contentBox){
+        this.children = children;
+        this.contentBox = contentBox;
     }
 
     public String getCarName() {
@@ -80,13 +102,22 @@ public class OneAvailableCar extends AnchorPane {
         this.city.setText(city.toUpperCase());
     }
     
+    public String getSamochod_id() {
+        return samochod_id;
+    }
+
+    public void setSamochod_id(String samochod_id) {
+        this.samochod_id = samochod_id;
+    }
+    
     public void setCarData(String carName, String engine, String doors, 
-                            String price, String pieces, String city){
+                            String price, String pieces, String city, String samochod_id){
         this.setCarName(carName);
         this.setEngine(engine);
         this.setDoors(doors);
         this.setPrice(price);
         this.setPieces(pieces);
         this.setCity(city);
+        this.setSamochod_id(samochod_id);
     }
 }

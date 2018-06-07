@@ -1,7 +1,10 @@
 package rental.boss;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import rental.AController;
@@ -101,11 +104,12 @@ public class BossController extends AController {
         if (item == null) {
             return;
         }
+        ObservableList<Node> children ;
         switch (item) {
             case myPersonalDataLabel:
                 personalData = new PersonalData();
                 contentBox.getChildren().setAll(personalData);
-                // personalData.setEmail(login);
+                personalData.setUserAndPrepareFields(user);
                 selectMenuItem(this.myPersonalDataLabel);
                 break;
             case myCurrentOrdersLabel:
@@ -125,21 +129,25 @@ public class BossController extends AController {
                 break;
             case dynowLabel:
                 availableCars = new AvailableCars("Dynów");
+                availableCars.prepareFields();
                 contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.dynowLabel);
             break;
             case jasloLabel:
                 availableCars = new AvailableCars("Jasło");
+                availableCars.prepareFields();
                 contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.jasloLabel);
                 break;
             case rzeszowLabel:
                 availableCars = new AvailableCars("Rzeszów");
                 contentBox.getChildren().setAll(availableCars);
+                availableCars.prepareFields();
                 selectMenuItem(this.rzeszowLabel);
                 break;
             case stalowaLabel:
                 availableCars = new AvailableCars("Stalowa Wola");
+                availableCars.prepareFields();
                 contentBox.getChildren().setAll(availableCars);
                 selectMenuItem(this.stalowaLabel);
                 break;

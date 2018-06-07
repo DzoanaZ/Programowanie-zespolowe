@@ -7,78 +7,99 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" stylesheets="@../resources/style.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="600.0" maxWidth="680.0" minHeight="600.0" minWidth="680.0" prefHeight="600.0" prefWidth="680.0" stylesheets="@../resources/style.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="190.0" layoutY="78.0" prefHeight="27.0" prefWidth="129.0" text="Samochód">
+      <Label alignment="CENTER_RIGHT" layoutX="210.0" layoutY="78.0" prefHeight="27.0" prefWidth="69.0" text="Marka">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="230.0" layoutY="119.0" prefHeight="27.0" prefWidth="50.0" text="Silnik">
+      <Label alignment="CENTER_RIGHT" layoutX="230.0" layoutY="174.0" prefHeight="27.0" prefWidth="50.0" text="Silnik">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="174.0" layoutY="161.0" prefHeight="27.0" prefWidth="136.0" text="Liczba drzwi">
+      <Label alignment="CENTER_RIGHT" layoutX="148.0" layoutY="216.0" prefHeight="27.0" prefWidth="136.0" text="Liczba drzwi">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="160.0" layoutY="207.0" prefHeight="27.0" prefWidth="169.0" text="Koszt za dobę" textAlignment="RIGHT">
+      <Label alignment="CENTER_RIGHT" layoutX="111.0" layoutY="262.0" prefHeight="27.0" prefWidth="169.0" text="Koszt za dobę" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="291.0" layoutY="76.0">
+      <TextField fx:id="brandField" layoutX="291.0" layoutY="76.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="291.0" layoutY="117.0">
+      <TextField fx:id="engineField" layoutX="291.0" layoutY="174.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="291.0" layoutY="159.0">
+      <TextField fx:id="doorsField" layoutX="291.0" layoutY="215.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailField" layoutX="291.0" layoutY="205.0">
+      <TextField fx:id="priceField" layoutX="291.0" layoutY="261.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="291.0" layoutY="403.0" mnemonicParsing="false" styleClass="default_button" text="Dodaj">
+      <Button fx:id="button" layoutX="291.0" layoutY="494.0" mnemonicParsing="false" styleClass="default_button" text="Dodaj">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="232.0" layoutY="256.0" prefHeight="27.0" prefWidth="38.0" text="Ilość" textAlignment="RIGHT">
+      <Label alignment="CENTER_RIGHT" layoutX="243.0" layoutY="311.0" prefHeight="27.0" prefWidth="38.0" text="Ilość" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="291.0" layoutY="254.0">
+      <TextField fx:id="numberField" layoutX="291.0" layoutY="310.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label layoutX="216.0" layoutY="303.0" prefHeight="27.0" prefWidth="57.0" text="Miasto" textAlignment="RIGHT">
+      <Label alignment="CENTER_RIGHT" layoutX="227.0" layoutY="406.0" prefHeight="27.0" prefWidth="57.0" text="Miasto" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="291.0" layoutY="301.0">
+      <TextField fx:id="cityField" layoutX="291.0" layoutY="404.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Nowy samochód" textAlignment="CENTER">
+      <Label fx:id="titleLabel" alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="660.0" styleClass="h1" text="Nowy samochód" textAlignment="CENTER">
          <font>
             <Font name="Verdana Bold" size="18.0" />
          </font>
       </Label>
-      <Separator layoutX="184.0" layoutY="375.0" prefHeight="0.0" prefWidth="271.0" />
+      <Separator layoutX="184.0" layoutY="465.0" prefHeight="4.0" prefWidth="298.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="209.0" layoutY="128.0" prefHeight="27.0" prefWidth="69.0" text="Model" textAlignment="RIGHT">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="modelField" layoutX="291.0" layoutY="127.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER_RIGHT" layoutX="227.0" layoutY="361.0" prefHeight="27.0" prefWidth="57.0" text="Miasto" textAlignment="RIGHT">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="availabilityField" layoutX="291.0" layoutY="359.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label fx:id="backLabel" layoutX="307.0" layoutY="541.0" style="-fx-font-size: 8pt;" styleClass="menu_font" text="Wstecz" visible="false" />
    </children>
 </fx:root>
