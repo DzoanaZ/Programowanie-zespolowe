@@ -4,6 +4,12 @@
 @font-face {
     src: url('CaviarDreams_Bold.ttf');
 }
+@font-face {
+    src: url('CaviarDreams_BoldItalic.ttf');
+}
+@font-face {
+    src: url('CaviarDreams_Italic.ttf');
+}
 .menuItem{
     -fx-font: 10pt 'Verdana';
     -fx-underline: false;
