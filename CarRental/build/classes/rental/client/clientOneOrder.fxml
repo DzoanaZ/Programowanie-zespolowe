@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" styleClass="order" stylesheets="@../resources/style.css" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" styleClass="order" stylesheets="@../resources/style.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="nameOrder" layoutX="17.0" layoutY="10.0" text="Opel Corsa C 2003">
          <font>
@@ -17,7 +17,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="159.0" layoutY="44.0" text="Deklarowana data zwrotu:" />
+      <Label fx:id="dateReturnLabel" layoutX="159.0" layoutY="44.0" text="Deklarowana data zwrotu:" />
       <Label fx:id="dateOfReturn" layoutX="159.0" layoutY="61.0" text="17/05/2018">
          <font>
             <Font size="14.0" />

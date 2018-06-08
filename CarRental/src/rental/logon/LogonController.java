@@ -61,10 +61,14 @@ public class LogonController extends AnchorPane {
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 errorLabel.setText("DB: Nieprawidłowy login i/lub hasło");
+                errorLabel.visibleProperty().set(true);
+                errorLabel.disableProperty().set(false);
                 return;
             }
         } else {
             errorLabel.setText("Nieprawidłowy login i/lub hasło");
+            errorLabel.visibleProperty().set(true);
+            errorLabel.disableProperty().set(false);
             return;
         }
 
@@ -139,22 +143,16 @@ public class LogonController extends AnchorPane {
     
     @FXML
     public void signupLabel_Click(){
-        
+        clearFields();
         ObservableList<Node> children = FXCollections.observableArrayList();
         children.addAll(anchorPane.getChildren());
         SignUp signUp = new SignUp(this.anchorPane, children);
         anchorPane.getChildren().setAll(signUp);
     }
-    
-    public LogonController showPanel(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logonPanel.fxml"));
-        fxmlLoader.getController();
-        
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-        return this;
+
+    private void clearFields(){
+        errorLabel.setText("");
+        loginField.setText("");
+        passwordField.setText("");
     }
 }

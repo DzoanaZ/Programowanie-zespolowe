@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.time.Period;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -90,12 +90,13 @@ public class SubmitOrder extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        
+
     }
 
     void initializeComponent(User user) {
-        if(user!=null)
+        if (user != null) {
             this.user = user;
+        }
         //Group RadioButtons
         transfer.setToggleGroup(group);
         card.setToggleGroup(group);
@@ -162,8 +163,7 @@ public class SubmitOrder extends AnchorPane {
                 engineChanged();
             }
         });
-        
-        
+
         prepareFields();
     }
 
@@ -180,36 +180,44 @@ public class SubmitOrder extends AnchorPane {
     }
 
     private void addRentalDateValidate(final DatePicker sender, final DatePicker picker1, final DatePicker picker2) {
-        sender.valueProperty().addListener((ov, oldValue, newValue) -> {
-            LocalDate date1 = picker1.getValue();
-            LocalDate date2 = picker2.getValue();
+        sender.valueProperty().addListener(new ChangeListener<LocalDate>() {
+            @Override
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                LocalDate date1 = picker1.getValue();
+                LocalDate date2 = picker2.getValue();
 
-            LocalDate today = LocalDate.now();
+                LocalDate today = LocalDate.now();
 
-            if (date1 != null && today.compareTo(date1) > 0) {
-                errorLabel.setText("Niepoprawna data wypożyczenia!");
-                errorLabel.setVisible(true);
-                errorType = ErrorType.DateRange;
-            } else if (date2 != null && today.compareTo(date2) > 0) {
-                errorLabel.setText("Niepoprawna data zwrotu!");
-                errorLabel.setVisible(true);
-                errorType = ErrorType.DateRange;
-            } else if (date1 != null && date2 != null) {
-                if (date1.compareTo(date2) > 0) {
-                    String error = sender.hashCode() == dateOfRent.hashCode() ? "wypożyczenia!" : "planowanego zwrotu!";
-                    errorLabel.setText("Niepoprawna data " + error);
+                if (date1 != null && today.compareTo(date1) > 0) {
+                    errorLabel.setText("Niepoprawna data wypożyczenia!");
                     errorLabel.setVisible(true);
                     errorType = ErrorType.DateRange;
-                } else {
-                    if (errorType == ErrorType.DateRange) {
-                        errorType = null;
-                        errorLabel.setText("");
-                        errorLabel.setVisible(false);
+                } else if (date2 != null && today.compareTo(date2) > 0) {
+                    errorLabel.setText("Niepoprawna data zwrotu!");
+                    errorLabel.setVisible(true);
+                    errorType = ErrorType.DateRange;
+                } else if (date1 != null && date2 != null) {
+                    if (date1.compareTo(date2) > 0) {
+                        String error = sender.hashCode() == dateOfRent.hashCode() ? "wypożyczenia!" : "planowanego zwrotu!";
+                        errorLabel.setText("Niepoprawna data " + error);
+                        errorLabel.setVisible(true);
+                        errorType = ErrorType.DateRange;
+                    } else {
+                        if (errorType == ErrorType.DateRange) {
+                            errorType = null;
+                            errorLabel.setText("");
+                            errorLabel.setVisible(false);
+                        }
+                        if (engine.getSelectionModel().getSelectedItem() != null
+                                && !engine.getSelectionModel().getSelectedItem().toString().equals("")) {
+                            engineChanged();
+                        }
                     }
                 }
 
             }
         });
+
     }
 
     enum ErrorType {
@@ -312,6 +320,16 @@ public class SubmitOrder extends AnchorPane {
             if (rs.next()) {
                 tempID = rs.getInt("samochod_id");
                 cena = rs.getBigDecimal("cena");
+
+                if (dateOfRent.getValue() != null && dateOfReturn.getValue() != null) {
+                    LocalDate date1 = this.dateOfRent.getValue();
+                    LocalDate date2 = this.dateOfReturn.getValue();
+
+                    Period period = Period.between(date1, date2);
+                    int daysElapsed = period.getDays();
+
+                    cena = cena.multiply(new BigDecimal(daysElapsed));
+                }
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -332,7 +350,7 @@ public class SubmitOrder extends AnchorPane {
                 && (selectedCarID < 0)) {
             return;
         }
-        
+
         String sql = "INSERT INTO wypozyczenia (samochod_id, uzytkownik_id, data_wypozyczenia, planowana_data_zwrotu, data_zamowienia, metoda_platnosci)"
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -346,18 +364,37 @@ public class SubmitOrder extends AnchorPane {
             pstmt.setObject(5, today);
 //pstmt.setObject(5, today.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
             pstmt.setString(6, payment);
-            
+
             pstmt.execute();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Zamówienie");
             alert.setHeaderText("Nowe zamówienie zostało wysłane!");
             alert.show();
+            clearFields();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Błąd zamówienia!");
             alert.setHeaderText("Sprawdź poprawność wprowadzonych danych.");
             alert.show();
-        } 
+        }
+    }
+
+    private void clearFields() {
+        dateOfRent.setValue(null);
+        dateOfReturn.setValue(null);
+        brand.getSelectionModel().clearSelection();
+        city.getSelectionModel().clearSelection();
+        model.getSelectionModel().clearSelection();
+        engine.getSelectionModel().clearSelection();
+        transfer.selectedProperty().set(false);
+        cash.selectedProperty().set(false);
+        card.selectedProperty().set(false);
+        price.setText("---- zł");
+        code.clear();
+        errorLabel.setText("");
+        payment=null;
+        selectedCarID=-1;
+        errorType = null;
     }
 }

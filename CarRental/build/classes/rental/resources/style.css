@@ -1,3 +1,15 @@
+@font-face {
+    src: url('CaviarDreams.ttf');
+}
+@font-face {
+    src: url('CaviarDreams_Bold.ttf');
+}
+@font-face {
+    src: url('CaviarDreams_BoldItalic.ttf');
+}
+@font-face {
+    src: url('CaviarDreams_Italic.ttf');
+}
 .menuItem{
     -fx-font: 10pt 'Verdana';
     -fx-underline: false;
@@ -17,6 +29,35 @@
 }
 
 .h1{
-    -fx-font: bold 14pt 'Verdana';
+    -fx-font-family: "Caviar Dreams";
+    -fx-font-size: 20pt; 
+    -fx-font-weight: bold;
     -fx-underline: false;
+}
+
+.link{
+	-fx-font-family: "Caviar Dreams";
+    -fx-font-size: 8pt; 
+    -fx-underline: true;
+}
+
+.h2{
+    -fx-font-family: "Caviar Dreams";
+    -fx-font-size: 14pt; 
+    -fx-font-weight: bold;
+    -fx-underline: false;
+}
+
+.menu_font{
+    -fx-font-family: "Caviar Dreams";
+    -fx-font-size: 12pt; 
+    -fx-font-weight: bold;
+    -fx-underline: false;
+}
+
+.default_button{
+    -fx-font-family: "Caviar Dreams";
+    -fx-font-size: 12pt; 
+    -fx-font-weight: bold;
+    -fx-underline: false; 
 }

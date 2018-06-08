@@ -102,9 +102,7 @@ public class OneOrderExpect extends AnchorPane{
         this.orderId = orderId;
     }
     
-    
-    
-    
+ 
     public void setOrderData(String nameOrder, String dateOfRent, String dateOfReturn, 
                             String totalCost, String status, String cityRent, String orderId){
         this.setNameOrder(nameOrder);

@@ -37,7 +37,7 @@ public class ActualOrders extends AnchorPane {
 
         ObservableList<OneOrder> items = FXCollections.observableArrayList();
         if (user.getId() != null && !user.getId().equals("")) {
-            String sql = "SELECT marka, model, data_wypozyczenia, planowana_data_zwrotu, samochody.cena, status, miasto FROM wypozyczenia "
+            String sql = "SELECT marka, model, data_wypozyczenia, planowana_data_zwrotu, wypozyczenia.cena, status, miasto FROM wypozyczenia "
                     + "INNER JOIN uzytkownicy ON uzytkownicy.user_id = wypozyczenia.uzytkownik_id "
                     + "INNER JOIN samochody ON samochody.samochod_id = wypozyczenia.samochod_id "
                     + "WHERE uzytkownik_id = " + user.getId()+" AND status <> 'Zakończone' AND status <> 'Anulowane' ORDER BY data_wypozyczenia DESC";
