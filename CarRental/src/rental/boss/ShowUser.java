@@ -87,7 +87,7 @@ public class ShowUser extends AnchorPane {
 
     public void attachEvents(User user) {
         for (OneUser temp : usersList) {
-            //Usuwanie
+            //Usuwanie usera
             temp.getDelete().setOnMouseClicked((event) -> {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Wymagane potwierdzenie");
@@ -117,7 +117,7 @@ public class ShowUser extends AnchorPane {
                 }
             });
 
-            //Edytowanie
+            //Edytowanie usera
             temp.getEdit().setOnMouseClicked((event) -> {
                 //Nowe okno Person
                 NewPerson edit = new NewPerson();
@@ -130,6 +130,7 @@ public class ShowUser extends AnchorPane {
                 if (temp.getType().equalsIgnoreCase("S")) {
                     edit.getBossRadio().setSelected(true);
                     edit.getEmployeeRadio().setSelected(false);
+                    edit.setPersonType("S");
                 } else if (temp.getType().equalsIgnoreCase("K")) {
                     edit.getBossRadio().setSelected(false);
                     edit.getEmployeeRadio().setSelected(false);
@@ -139,6 +140,7 @@ public class ShowUser extends AnchorPane {
                 } else {
                     edit.getEmployeeRadio().setSelected(true);
                     edit.getBossRadio().setSelected(false);
+                    edit.setPersonType("P");
                 }
                 edit.getAddButton().setText("Zatwierdź");
                 this.getChildren().setAll(edit);
@@ -174,7 +176,7 @@ public class ShowUser extends AnchorPane {
 
                             if (edit.getPersonType().equalsIgnoreCase("pracownik")) {
                                 typ = "P";
-                            } else if (edit.getPersonType().equalsIgnoreCase("szef")) {
+                            } else if (edit.getPersonType().equalsIgnoreCase("prezes")) {
                                 typ = "S";
                             } else {
                                 typ = "K";

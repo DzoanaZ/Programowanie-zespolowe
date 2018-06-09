@@ -123,14 +123,14 @@ public class NewCar extends AnchorPane {
                     try (Connection conn = ConnectionDB.connect();
                             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-                        pstmt.setString(1, this.brandField.getText());
-                        pstmt.setString(2, this.modelField.getText());
-                        pstmt.setString(3, this.engineField.getText());
-                        pstmt.setString(4, this.doorsField.getText());
-                        pstmt.setString(5, this.numberField.getText());
-                        pstmt.setString(6, this.availabilityField.getText());
-                        pstmt.setBigDecimal(7, new BigDecimal(this.priceField.getText().replaceAll(",", ".")));
-                        pstmt.setString(8, this.cityField.getSelectionModel().getSelectedItem().toString());
+                        pstmt.setString(1, removeSpaceOfEnd(this.brandField.getText()));
+                        pstmt.setString(2, removeSpaceOfEnd(this.modelField.getText()));
+                        pstmt.setString(3, removeSpaceOfEnd(this.engineField.getText()));
+                        pstmt.setString(4, removeSpaceOfEnd(this.doorsField.getText()));
+                        pstmt.setString(5, removeSpaceOfEnd(this.numberField.getText()));
+                        pstmt.setString(6, removeSpaceOfEnd(this.availabilityField.getText()));
+                        pstmt.setBigDecimal(7, new BigDecimal(removeSpaceOfEnd(this.priceField.getText().replaceAll(",", "."))));
+                        pstmt.setString(8, removeSpaceOfEnd(this.cityField.getSelectionModel().getSelectedItem().toString()));
                         pstmt.execute();
 
                         clearFields();
@@ -161,5 +161,26 @@ public class NewCar extends AnchorPane {
         availabilityField.clear();
         priceField.clear();
         cityField.getSelectionModel().clearSelection();
+    }
+    
+   private static String removeSpaceOfEnd(String word) {
+        char[] tab = word.toCharArray();
+        String noneSpace="";
+        boolean someLetter = false;
+        final int LENGTH = tab.length-1;
+        for(int i=0; i<=LENGTH; i++){
+            if(tab[i]!=' '){
+                someLetter=true;
+                noneSpace+=tab[i];
+                continue;
+            }
+            else if(i<LENGTH && tab[i+1]!=' ' && someLetter)
+            {
+                noneSpace+=tab[i];
+                continue;
+            }
+        }
+
+        return noneSpace;
     }
 }

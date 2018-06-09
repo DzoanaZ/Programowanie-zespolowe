@@ -249,8 +249,12 @@ public class SubmitOrder extends AnchorPane {
     }
 
     private void cityChanged() {
+         brand.getSelectionModel().clearSelection();
+         model.getSelectionModel().clearSelection();
+         engine.getSelectionModel().clearSelection();
+         this.price.setText("---- zł");
         ObservableList<String> items = FXCollections.observableArrayList();
-        String sql = "Select * FROM samochody WHERE miasto = ? AND dostepne > 0 ORDER BY marka ASC";
+        String sql = "Select DISTINCT marka FROM samochody WHERE miasto = ? AND dostepne > 0 ORDER BY marka ASC";
 
         try (Connection conn = ConnectionDB.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -267,8 +271,13 @@ public class SubmitOrder extends AnchorPane {
     }
 
     private void brandChanged() {
+        model.getSelectionModel().clearSelection();
+        engine.getSelectionModel().clearSelection();
+        this.price.setText("---- zł");
+        if(brand.getSelectionModel().getSelectedItem().toString() == null)
+            return;
         ObservableList<String> items = FXCollections.observableArrayList();
-        String sql = "Select * FROM samochody WHERE miasto = ? AND marka = ? AND dostepne > 0  ORDER BY model ASC";
+        String sql = "Select DISTINCT model FROM samochody WHERE miasto = ? AND marka = ? AND dostepne > 0  ORDER BY model ASC";
 
         try (Connection conn = ConnectionDB.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -286,8 +295,13 @@ public class SubmitOrder extends AnchorPane {
     }
 
     private void modelChanged() {
+        engine.getSelectionModel().clearSelection();
+        this.price.setText("---- zł");
+        if(model.getSelectionModel().getSelectedItem().toString() == null)
+            return;
+        
         ObservableList<String> items = FXCollections.observableArrayList();
-        String sql = "Select * FROM samochody WHERE miasto = ? AND marka = ? AND model = ? AND dostepne > 0 ORDER BY silnik ASC";
+        String sql = "Select DISTINCT silnik FROM samochody WHERE miasto = ? AND marka = ? AND model = ? AND dostepne > 0 ORDER BY silnik ASC";
 
         try (Connection conn = ConnectionDB.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -306,6 +320,8 @@ public class SubmitOrder extends AnchorPane {
     }
 
     private void engineChanged() {
+        if(engine.getSelectionModel().getSelectedItem().toString() == null)
+            return;
         ObservableList<String> items = FXCollections.observableArrayList();
         String sql = "Select samochod_id, cena FROM samochody WHERE miasto = ? AND marka = ? AND model = ? AND silnik = ? AND dostepne > 0  ORDER BY silnik ASC";
         int tempID = -1;
