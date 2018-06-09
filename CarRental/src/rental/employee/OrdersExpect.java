@@ -45,29 +45,14 @@ public class OrdersExpect extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        statusItems = FXCollections.observableArrayList();
         statusmap = new HashMap();
-        String sql = "SELECT * FROM statusy WHERE status<>'Nowe'";
-
-        try (Connection conn = ConnectionDB.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            ResultSet rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                statusItems.add(new MenuItem(rs.getString("status")));
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
         oneOrderExpect = FXCollections.observableArrayList();
     }
 
     public void prepareData(User user) {
         ObservableList<rental.employee.OneOrderExpect> items = FXCollections.observableArrayList();
         if (user.getId() != null && !user.getId().equals("")) {
+
             String sql = "SELECT * FROM v_pracownik_nowe_zamowienia";
 
             try (Connection conn = ConnectionDB.connect();
@@ -76,11 +61,23 @@ public class OrdersExpect extends AnchorPane {
                 ResultSet rs = pstmt.executeQuery();
 
                 while (rs.next()) {
+
+                    sql = "SELECT * FROM statusy WHERE status<>'Nowe'";
+
+                    statusItems = FXCollections.observableArrayList();
+
+                    PreparedStatement pstmta = conn.prepareStatement(sql);
+                    ResultSet rsa = pstmta.executeQuery();
+
+                    while (rsa.next()) {
+                        statusItems.add(new MenuItem(rsa.getString("status")));
+                    }
+
                     BigDecimal cena = rs.getBigDecimal("cena");
                     DecimalFormat df = new DecimalFormat("0.00");
 
-                    rental.employee.OneOrderExpect temp = new rental.employee.OneOrderExpect();
-                    temp.getMenuStatus().getItems().setAll(statusItems);
+                    OneOrderExpect temp = new OneOrderExpect();
+
                     temp.setOrderData(rs.getString("marka") + " " + rs.getString("model"),
                             rs.getString("data_wypozyczenia"),
                             rs.getString("planowana_data_zwrotu"),
@@ -88,10 +85,11 @@ public class OrdersExpect extends AnchorPane {
                             rs.getString("status"),
                             rs.getString("miasto"),
                             rs.getString("wypozyczenie_id"));
+                    temp.getMenuStatus().getItems().setAll(statusItems);
                     items.add(temp);
                 }
                 listProcessOrders.setItems(items);
-                oneOrderExpect.addAll(items);
+                oneOrderExpect.setAll(items);
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
@@ -120,7 +118,7 @@ public class OrdersExpect extends AnchorPane {
 
                         String sql = "UPDATE wypozyczenia SET status = ? WHERE wypozyczenie_id = ?";
                         MenuItem temp = (MenuItem) event.getSource();
-                        
+
                         String status = temp.getText();
                         String wypozyczenie_id = order.getOrderId();
 

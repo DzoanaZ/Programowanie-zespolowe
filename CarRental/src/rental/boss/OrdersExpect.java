@@ -45,23 +45,7 @@ public class OrdersExpect extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        statusItems = FXCollections.observableArrayList();
         statusmap = new HashMap();
-        String sql = "SELECT * FROM statusy WHERE status<>'Nowe'";
-
-        try (Connection conn = ConnectionDB.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            ResultSet rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                statusItems.add(new MenuItem(rs.getString("status")));
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
         oneOrderExpect = FXCollections.observableArrayList();
     }
 
@@ -76,6 +60,18 @@ public class OrdersExpect extends AnchorPane {
                 ResultSet rs = pstmt.executeQuery();
 
                 while (rs.next()) {
+                    sql = "SELECT * FROM statusy WHERE status<>'Nowe'";
+
+                    statusItems = FXCollections.observableArrayList();
+
+                    PreparedStatement pstmta = conn.prepareStatement(sql);
+                    ResultSet rsa = pstmta.executeQuery();
+
+                    while (rsa.next()) {
+                        statusItems.add(new MenuItem(rsa.getString("status")));
+                    }
+                    
+                    
                     BigDecimal cena = rs.getBigDecimal("cena");
                     DecimalFormat df = new DecimalFormat("0.00");
 
